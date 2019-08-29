@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="624ee5a3-e51d-41dc-af7c-3f094cc6f968" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="273" column="100" selection-start-line="273" selection-start-column="100" selection-end-line="273" selection-end-column="100" />
+            <state relative-caret-position="288">
+              <caret line="249" column="62" selection-start-line="249" selection-start-column="62" selection-end-line="249" selection-end-column="62" />
               <folding>
                 <element signature="e#9779#9785#0" expanded="true" />
                 <element signature="e#9785#9791#0" expanded="true" />
@@ -26,6 +25,8 @@
                 <element signature="e#10443#10449#0" expanded="true" />
                 <element signature="e#14692#14698#0" expanded="true" />
                 <element signature="e#14698#14704#0" expanded="true" />
+                <element signature="e#18157#18163#0" expanded="true" />
+                <element signature="e#18163#18169#0" expanded="true" />
                 <element signature="e#20743#20749#0" expanded="true" />
                 <element signature="e#20749#20755#0" expanded="true" />
                 <element signature="e#23713#23719#0" expanded="true" />
@@ -36,6 +37,12 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Bootstra</find>
+      <find>Joomla</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,6 +80,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -101,12 +109,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567063814234</updated>
-      <workItem from="1567063819912" duration="2258000" />
+      <workItem from="1567063819912" duration="4826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2258000" />
+    <option name="totallyTimeSpent" value="4826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1358" extended-state="0" />
@@ -151,8 +159,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="273" column="100" selection-start-line="273" selection-start-column="100" selection-end-line="273" selection-end-column="100" />
+        <state relative-caret-position="288">
+          <caret line="249" column="62" selection-start-line="249" selection-start-column="62" selection-end-line="249" selection-end-column="62" />
           <folding>
             <element signature="e#9779#9785#0" expanded="true" />
             <element signature="e#9785#9791#0" expanded="true" />
@@ -160,6 +168,8 @@
             <element signature="e#10443#10449#0" expanded="true" />
             <element signature="e#14692#14698#0" expanded="true" />
             <element signature="e#14698#14704#0" expanded="true" />
+            <element signature="e#18157#18163#0" expanded="true" />
+            <element signature="e#18163#18169#0" expanded="true" />
             <element signature="e#20743#20749#0" expanded="true" />
             <element signature="e#20749#20755#0" expanded="true" />
             <element signature="e#23713#23719#0" expanded="true" />
