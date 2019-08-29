@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="624ee5a3-e51d-41dc-af7c-3f094cc6f968" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/favicon-l.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon-m.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon-s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon-xl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon-xs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -16,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="249" column="62" selection-start-line="249" selection-start-column="62" selection-end-line="249" selection-end-column="62" />
+            <state relative-caret-position="154">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
               <folding>
                 <element signature="e#9779#9785#0" expanded="true" />
                 <element signature="e#9785#9791#0" expanded="true" />
@@ -36,12 +43,22 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/pillar-6.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="8558" column="12" selection-start-line="8558" selection-start-column="12" selection-end-line="8558" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Bootstra</find>
       <find>Joomla</find>
+      <find>180x</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -50,6 +67,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/assets/css/pillar-6.css" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -72,6 +90,17 @@
             <path>
               <item name="stefanr20.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="stefanr20.github.io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stefanr20.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stefanr20.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stefanr20.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stefanr20.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -109,12 +138,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567063814234</updated>
-      <workItem from="1567063819912" duration="4826000" />
+      <workItem from="1567063819912" duration="7628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4826000" />
+    <option name="totallyTimeSpent" value="7628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1358" extended-state="0" />
@@ -157,10 +186,17 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/assets/css/pillar-6.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="8558" column="12" selection-start-line="8558" selection-start-column="12" selection-end-line="8558" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="249" column="62" selection-start-line="249" selection-start-column="62" selection-end-line="249" selection-end-column="62" />
+        <state relative-caret-position="154">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
           <folding>
             <element signature="e#9779#9785#0" expanded="true" />
             <element signature="e#9785#9791#0" expanded="true" />
