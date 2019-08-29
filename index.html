@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive Resume Template">
+    <meta name="description" content="Curriculum Vitae">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
     <link rel="shortcut icon" type="image/png" href="icons/favicon.png">
 
@@ -18,6 +18,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js"
             integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a"
             crossorigin="anonymous"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/moment-precise-range.js"></script>
+
 
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="assets/css/pillar-6.css">
@@ -62,7 +65,8 @@
                 <div class="resume-section-content">
                     <p class="mb-0">I am open-minded, friendly and a very good team player that can adapt to any kind of
                         multicultural environment. I am looking to be part of a team that challenges me to be better, to
-                        learn more and more every day in order to hone my skills, fulfill my goals and further develop my career.</p>
+                        learn more and more every day in order to hone my skills, fulfill my goals and further develop
+                        my career.</p>
                 </div>
             </section><!--//summary-section-->
             <div class="row">
@@ -79,16 +83,16 @@
                                                 Integration Development Consultant</h3>
                                             <div class="resume-company-name ml-auto">SAP, Romania</div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time">10/2018 - Present</div>
+                                        <div class="resume-position-time" id="workExp6">10/2018 - Present</div>
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
                                         <p> Back-end developer for an E-Commerce project developed using SAP Hybris.</p>
                                         &nbsp;&nbsp;<b>SAP Hybris Back-End Developer</b>
                                         <ul>
-                                            <li> Debug server side critical issues</li>
                                             <li> Develop, update and maintain SAP Hybris components</li>
                                             <li> Develop end-to-end functionalities</li>
                                             <li> Unit testing</li>
+                                            <li> Debug server side critical issues</li>
                                             <li> Git management</li>
                                         </ul>
                                         <h4 class="resume-timeline-item-desc-heading font-weight-bold">
@@ -132,7 +136,7 @@
                                                 Developer</h3>
                                             <div class="resume-company-name ml-auto">Deloitte Digital, Romania</div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time">09/2017 - 10/2018</div>
+                                        <div class="resume-position-time" id="workExp5">09/2017 - 10/2018</div>
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
                                         <p> Back-End developer for 2 projects. One of the projects was a SAP Hybris
@@ -141,21 +145,21 @@
 
                                         &nbsp;&nbsp;<b>Java Back-End Developer</b>
                                         <ul>
-                                            <li> Debug server side critical issues</li>
                                             <li> Create and maintain new endpoints for each microservice</li>
                                             <li> Develop Apigee flows</li>
                                             <li> Unit testing</li>
                                             <li> Integration testing</li>
+                                            <li> Debug server side critical issues</li>
                                             <li> Git management</li>
                                         </ul>
 
                                         &nbsp;&nbsp;<b>SAP Hybris Back-End Developer</b>
                                         <ul>
-                                            <li> Debug server side critical issues</li>
                                             <li> Edit PDP/PLP pages</li>
                                             <li> Fix SonarQube issues</li>
                                             <li> Unit testing</li>
                                             <li> Integration testing</li>
+                                            <li> Debug server side critical issues</li>
                                             <li> Git management</li>
                                         </ul>
 
@@ -199,14 +203,11 @@
                                                 Developer</h3>
                                             <div class="resume-company-name ml-auto">Avantevo, Romania</div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time">09/2015 - 07/2016</div>
+                                        <div class="resume-position-time" id="workExp4">10/2015 - 07/2016</div>
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
                                         <p>Tasks mostly involved bug fixing or altering content for
                                             existing applications.</p>
-                                        <p>During the first 3 months I was full time but then I switched to part time,
-                                            2
-                                            hours per day, becauase I needed to focus on college.</p>
                                         &nbsp;&nbsp;<b>Junior Java Back-End/Front-End Developer</b>
                                         <ul>
                                             <li> Fix issues where functionalities did not respect acceptance criteria
@@ -241,12 +242,13 @@
 
                                     <div class="resume-timeline-item-header mb-2">
                                         <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Front-End Developer
+                                            <h3 class="resume-position-title font-weight-bold mb-1">Junior Front-End Developer
                                                 <!--                                                <small class="text-muted"></small>-->
                                             </h3>
-                                            <div class="resume-company-name ml-auto">Intelligent Technologies, Romania</div>
+                                            <div class="resume-company-name ml-auto">Intelligent Technologies, Romania
+                                            </div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time">07/2015 - 10/2015</div>
+                                        <div class="resume-position-time" id="workExp3">07/2015 - 10/2015</div>
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
                                         <p> Developed new web pages or developed functionalities for existing ones. </p>
@@ -285,7 +287,7 @@
                                                 Controller</h3>
                                             <div class="resume-company-name ml-auto">Ubisoft, Romania</div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time">06/2015 - 07/2015</div>
+                                        <div class="resume-position-time" id="workExp2">06/2015 - 07/2015</div>
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
                                         <p>Test video games and report found issues on JIRA.</p>
@@ -301,8 +303,6 @@
                                             used:</h4>
                                         <ul class="list-inline">
                                             <li class="list-inline-item"><span class="badge badge-primary badge-pill">JIRA</span>
-                                            </li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Microsoft Office</span>
                                             </li>
                                             <li class="list-inline-item"><span class="badge badge-primary badge-pill">Video Editing tools</span>
                                             </li>
@@ -321,7 +321,7 @@
                                                 Controller</h3>
                                             <div class="resume-company-name ml-auto">Ubisoft, Romania</div>
                                         </div><!--//row-->
-                                        <div class="resume-position-time">06/2014 - 10/2014</div>
+                                        <div class="resume-position-time" id="workExp1">06/2014 - 09/2014</div>
                                     </div><!--//resume-timeline-item-header-->
                                     <div class="resume-timeline-item-desc">
                                         <p>Test video games and report found issues on JIRA.</p>
@@ -337,8 +337,6 @@
                                             used:</h4>
                                         <ul class="list-inline">
                                             <li class="list-inline-item"><span class="badge badge-primary badge-pill">JIRA</span>
-                                            </li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Microsoft Office</span>
                                             </li>
                                             <li class="list-inline-item"><span class="badge badge-primary badge-pill">Video Editing tools</span>
                                             </li>
@@ -376,7 +374,7 @@
                                         <div class="resume-skill-name">Bootstrap</div>
                                     </li>
                                     <li class="mb-2">
-                                        <div class="resume-skill-name">JSP (Java Server Pages)</div>
+                                        <div class="resume-skill-name">JSP </div>
                                     </li>
                                 </ul>
                             </div><!--//resume-skill-item-->
@@ -401,8 +399,6 @@
                                 <h4 class="resume-skills-cat font-weight-bold">Others</h4>
                                 <ul class="list-inline">
                                     <li class="list-inline-item"><span class="badge badge-light">Joomla</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Microsoft Office</span>
-                                    </li>
                                     <li class="list-inline-item"><span class="badge badge-light">Unix</span></li>
                                     <li class="list-inline-item"><span class="badge badge-light">Bash</span></li>
                                     <li class="list-inline-item"><span class="badge badge-light">Git</span></li>
@@ -450,19 +446,28 @@
                                 <li class="mb-2 pl-4 position-relative">
                                     <i class="resume-award-icon fas fa-award position-absolute"
                                        data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">1st Edition of IT Hackathon - Smart Technologies by Reply 2016 (11/2016)</div>
-                                    <div class="resume-award-desc">Part of a team that developed a VR application using Unity that assesed a drivers parking skills. Logitech Momo Racing Wheel and Oculus VR.</div>
+                                    <div class="resume-award-name">1st Edition of IT Hackathon - Smart Technologies by
+                                        Reply (11/2016)
+                                    </div>
+                                    <div class="resume-award-desc">Part of a team that developed a VR application using
+                                        Unity that assesed a drivers parking skills. Logitech Momo Racing Wheel and
+                                        Oculus VR.
+                                    </div>
                                 </li>
                                 <li class="mb-0 pl-4 position-relative">
                                     <i class="resume-award-icon fas fa-award position-absolute"
                                        data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">CCNA 1 - Telecom Academy, Bucharest, Romania (02/2016 – 06/2016)</div>
+                                    <div class="resume-award-name">CCNA 1 - Telecom Academy, Bucharest, Romania (02/2016
+                                        – 06/2016)
+                                    </div>
                                     <div class="resume-award-desc">Routing and Switching</div>
                                 </li>
                                 <li class="mb-0 pl-4 position-relative">
                                     <i class="resume-award-icon fas fa-award position-absolute"
                                        data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">ECDL - Romania, Bucharest (Romania) (11/2011 – 04/2013)</div>
+                                    <div class="resume-award-name">ECDL - Romania, Bucharest (Romania) (11/2011 –
+                                        04/2013)
+                                    </div>
                                     <div class="resume-award-desc"></div>
                                 </li>
                                 <li class="mb-0 pl-4 position-relative">
@@ -502,14 +507,14 @@
                         <div class="resume-section-content">
                             <ul class="list-unstyled">
                                 <li class="mb-1">Programming</li>
+                                <li class="mb-1">Tech Gadgets</li>
+                                <li class="mb-1">Boardgames</li>
                                 <li class="mb-1">Gym</li>
-                                <li class="mb-1">8-Ball Pool</li>
+                                <li class="mb-1">Cars</li>
+                                <li class="mb-1">Pool</li>
                                 <li class="mb-1">TV Shows</li>
                                 <li class="mb-1">Movies</li>
-                                <li class="mb-1">Boardgames</li>
                                 <li class="mb-1">Gaming</li>
-                                <li class="mb-1">Cars</li>
-                                <li class="mb-1">Gadgets</li>
                             </ul>
                         </div>
                     </section><!--//interests-section-->
@@ -533,5 +538,14 @@
 
 
 </body>
-</html> 
+<script type="text/javascript" src="assets/js/script.js"></script>
+<script type="text/javascript" language="JavaScript">
+    computeMoment('workExp6', '2018-10', moment())
+    computeMoment('workExp5', '2017-09', '2018-10')
+    computeMoment('workExp4', '2015-10', '2016-07')
+    computeMoment('workExp3', '2015-07', '2015-10')
+    computeMoment('workExp2', '2015-06', '2015-07')
+    computeMoment('workExp1', '2014-06', '2014-09')
+</script>
+</html>
 
