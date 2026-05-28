@@ -44,13 +44,14 @@
 
 <body>
 
-<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-    <i id="theme-toggle-icon" class="fas fa-moon" aria-hidden="true"></i>
-</button>
-
 <article class="resume-wrapper text-center position-relative">
     <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
         <header class="resume-header pt-4 pt-md-0">
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                <i class="fas fa-moon theme-toggle-icon theme-icon-moon" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-toggle-icon theme-icon-sun" aria-hidden="true"></i>
+                <span id="theme-toggle-label" class="theme-toggle-label">Dark mode</span>
+            </button>
             <div class="media flex-column flex-md-row align-items-md-center">
                 <img class="mr-3 img-fluid picture mx-auto align-self-md-center" src="assets/images/profile.jpg" alt="">
                 <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
@@ -643,34 +644,36 @@
     (function () {
         var root = document.documentElement;
         var btn = document.getElementById('theme-toggle');
-        var icon = document.getElementById('theme-toggle-icon');
-        if (!btn || !icon) return;
+        var label = document.getElementById('theme-toggle-label');
+        if (!btn || !label) return;
 
-        function syncIcon() {
+        function sync() {
             var isDark = root.classList.contains('dark-mode');
-            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            label.textContent = isDark ? 'Light mode' : 'Dark mode';
             btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
             btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
         }
 
-        syncIcon();
+        sync();
 
         btn.addEventListener('click', function () {
             root.classList.toggle('dark-mode');
             try {
                 localStorage.setItem('theme', root.classList.contains('dark-mode') ? 'dark' : 'light');
             } catch (e) { /* ignore */ }
-            syncIcon();
+            sync();
         });
 
         // Follow OS-level changes only if the user hasn't made an explicit choice
         if (window.matchMedia) {
             var mq = window.matchMedia('(prefers-color-scheme: dark)');
-            mq.addEventListener && mq.addEventListener('change', function (e) {
-                if (localStorage.getItem('theme')) return;
-                root.classList.toggle('dark-mode', e.matches);
-                syncIcon();
-            });
+            if (mq.addEventListener) {
+                mq.addEventListener('change', function (e) {
+                    if (localStorage.getItem('theme')) return;
+                    root.classList.toggle('dark-mode', e.matches);
+                    sync();
+                });
+            }
         }
     })();
 </script>
