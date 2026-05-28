@@ -1,0 +1,211 @@
+/* ============================================================
+   Dark Mode — overrides applied when <html> has .dark-mode
+   ============================================================ */
+
+html.dark-mode {
+    background: #121212;
+}
+
+html.dark-mode body {
+    background: #121212;
+    color: #d4d4d8;
+}
+
+/* Page background behind the resume card */
+html.dark-mode .resume-wrapper {
+    background: #121212 !important;
+}
+
+/* The resume card itself */
+html.dark-mode .resume-wrapper-inner.bg-white,
+html.dark-mode .bg-white {
+    background-color: #1e1e1e !important;
+}
+
+html.dark-mode .shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Header — slightly deeper maroon to reduce glare on dark surfaces */
+html.dark-mode .resume-header {
+    background: #5d2f45;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+html.dark-mode .resume-header a {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+html.dark-mode .resume-header a:hover {
+    color: white;
+}
+
+/* Body text & section content */
+html.dark-mode .resume-section-content {
+    color: #c4c4c8;
+}
+
+/* Section titles — brighten the accent for AA contrast on dark */
+html.dark-mode .resume-section-title {
+    color: #d29ab4;
+}
+
+html.dark-mode .resume-section-title:after {
+    background: #3a3a3a;
+}
+
+/* Role / skill / education titles */
+html.dark-mode .resume-position-title,
+html.dark-mode .resume-skills-cat,
+html.dark-mode .resume-degree,
+html.dark-mode .resume-award-name,
+html.dark-mode .resume-lang-name {
+    color: #ececf1;
+}
+
+/* Subtitle / org / description text */
+html.dark-mode .resume-company-name,
+html.dark-mode .resume-degree-org,
+html.dark-mode .resume-award-desc {
+    color: #b4b4b8;
+}
+
+/* Dates / muted text */
+html.dark-mode .resume-position-time,
+html.dark-mode .resume-degree-time,
+html.dark-mode .resume-award-icon {
+    color: #888c94;
+}
+
+html.dark-mode .text-muted {
+    color: #9ca3af !important;
+}
+
+/* Inline emphasis */
+html.dark-mode strong,
+html.dark-mode b {
+    color: #f4f4f5;
+}
+
+html.dark-mode em {
+    color: #c4c4c8;
+}
+
+/* Skill badges (sidebar — "badge-light") */
+html.dark-mode .badge-light {
+    background-color: #2a2a2a;
+    color: #e4e4e7;
+    border: 1px solid #3a3a3a;
+}
+
+/* Technologies-used badges ("badge-primary") */
+html.dark-mode .badge-primary {
+    background-color: #a25378;
+    color: #ffffff;
+}
+
+/* Timeline rail + dots */
+html.dark-mode .resume-timeline:before {
+    background: #5d2f45;
+}
+
+html.dark-mode .resume-timeline-item:before {
+    background: #1e1e1e;
+    border-color: #c97a9c;
+}
+
+/* Footer */
+html.dark-mode .footer {
+    color: #888c94;
+}
+
+html.dark-mode .footer a {
+    color: #b4b4b8;
+}
+
+html.dark-mode .footer .fa-heart {
+    color: #ff7e6a;
+}
+
+/* ============================================================
+   Theme Toggle button (fixed top-right)
+   ============================================================ */
+
+.theme-toggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+    color: #80425F;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.2s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid #a25378;
+    outline-offset: 2px;
+}
+
+html.dark-mode .theme-toggle {
+    background: #2a2a2a;
+    color: #f4d03f;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+html.dark-mode .theme-toggle:focus {
+    outline-color: #c97a9c;
+}
+
+/* ============================================================
+   Smooth transitions when the theme flips
+   ============================================================ */
+
+html,
+body,
+.resume-wrapper,
+.resume-wrapper-inner,
+.resume-header,
+.resume-section-title,
+.resume-section-content,
+.resume-position-title,
+.resume-company-name,
+.resume-position-time,
+.resume-skills-cat,
+.resume-degree,
+.resume-degree-org,
+.resume-degree-time,
+.resume-award-name,
+.resume-award-desc,
+.resume-lang-name,
+.badge-light,
+.badge-primary {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Print: force light mode for readable PDFs */
+@media print {
+    html.dark-mode,
+    html.dark-mode body,
+    html.dark-mode .resume-wrapper,
+    html.dark-mode .resume-wrapper-inner {
+        background: white !important;
+        color: black !important;
+    }
+    .theme-toggle {
+        display: none !important;
+    }
+}
