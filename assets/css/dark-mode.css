@@ -429,35 +429,118 @@ body,
     }
 
     /* Tighten the layout so it fits a paper page */
+    body {
+        font-size: 11.5px !important;
+        line-height: 1.4 !important;
+    }
     .resume-body.p-5 {
-        padding: 1.25rem !important;
+        padding: 1rem !important;
     }
     .resume-header {
-        padding: 0.75rem !important;
+        padding: 0.5rem 0.75rem !important;
         min-height: 0 !important;
     }
     .resume-header .picture {
-        width: 110px !important;
+        width: 90px !important;
     }
     .resume-header .name {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+        letter-spacing: 0.08rem;
     }
     .resume-header .title {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
-
-    /* Page-break control: keep each job entry together */
-    .resume-timeline-item,
-    article.resume-timeline-item {
-        page-break-inside: avoid;
-        break-inside: avoid;
+    .resume-header .media-body {
+        padding: 0.5rem !important;
+    }
+    .resume-section.mb-5,
+    section.resume-section {
+        margin-bottom: 0.75rem !important;
     }
     .resume-section-title {
-        page-break-after: avoid;
-        break-after: avoid;
+        font-size: 0.95rem !important;
+        padding-bottom: 0.4rem !important;
+        margin-bottom: 0.5rem !important;
     }
-    section.resume-section {
-        page-break-inside: auto;
+    .resume-position-title {
+        font-size: 0.95rem !important;
+    }
+    .resume-timeline {
+        padding-left: 1.25rem !important;
+    }
+    .resume-timeline-item {
+        padding-bottom: 0.6rem !important;
+    }
+    .resume-timeline-item-desc-heading {
+        font-size: 0.85rem !important;
+        margin-top: 0.4rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    .resume-timeline-item-desc ul,
+    .resume-timeline-item-desc ol {
+        margin-bottom: 0.4rem !important;
+        padding-left: 1.1rem !important;
+    }
+    .resume-timeline-item-desc li {
+        margin-bottom: 0.1rem !important;
+    }
+    .resume-timeline-item-desc p {
+        margin-bottom: 0.4rem !important;
+    }
+    .badge-pill,
+    .badge {
+        font-size: 0.65rem !important;
+        padding: 0.25em 0.55em !important;
+    }
+    .list-inline-item {
+        margin-bottom: 0.2rem !important;
+    }
+
+    /* Preserve the two-column desktop layout on paper.
+       Print viewport (~793px) is below Bootstrap's lg breakpoint, so the
+       columns would otherwise stack and waste horizontal space. */
+    .row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    .col-lg-8 {
+        flex: 0 0 66.6667% !important;
+        max-width: 66.6667% !important;
+        padding-right: 1rem !important;
+    }
+    .col-lg-4 {
+        flex: 0 0 33.3333% !important;
+        max-width: 33.3333% !important;
+        padding-left: 0.5rem !important;
+    }
+
+    /* Page-break control: let big role entries (e.g. Raiffeisen) flow
+       across pages naturally, but keep section/sub-section headings
+       tied to the content that follows them. */
+    .resume-timeline-item,
+    article.resume-timeline-item {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+    }
+    .resume-section-title,
+    .resume-timeline-item-header,
+    .resume-position-title,
+    h4.resume-timeline-item-desc-heading,
+    .resume-timeline-item-desc b {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+    }
+    .resume-timeline-item-desc ul {
+        orphans: 2;
+        widows: 2;
+    }
+    /* Skill blocks, education entries, and awards are small enough to
+       keep together cleanly. */
+    .resume-skill-item,
+    .education-section li,
+    .resume-awards-list > li {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
     }
 
     /* Don't print URLs after links — keeps text clean */
