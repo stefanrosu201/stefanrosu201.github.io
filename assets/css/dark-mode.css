@@ -210,16 +210,6 @@ html.dark-mode .theme-toggle:focus {
     outline-color: #f4d03f;
 }
 
-@media (max-width: 575.98px) {
-    .theme-toggle {
-        top: 0.6rem;
-        right: 0.6rem;
-        height: 34px;
-        padding: 0 0.75rem 0 0.6rem;
-        font-size: 0.75rem;
-    }
-}
-
 /* ============================================================
    Smooth transitions when the theme flips
    ============================================================ */
@@ -246,16 +236,231 @@ body,
     transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Print: force light mode for readable PDFs */
-@media print {
-    html.dark-mode,
-    html.dark-mode body,
-    html.dark-mode .resume-wrapper,
-    html.dark-mode .resume-wrapper-inner {
-        background: white !important;
-        color: black !important;
+/* ============================================================
+   Mobile-friendly responsive layout
+   ============================================================ */
+
+/* Tablets and below */
+@media (max-width: 991.98px) {
+    .resume-header .name {
+        font-size: 2rem;
+        letter-spacing: 0.12rem;
+    }
+}
+
+/* Phones */
+@media (max-width: 767.98px) {
+    .resume-wrapper {
+        padding-top: 0;
+        padding-bottom: 1.5rem;
+    }
+    .resume-body.p-5 {
+        padding: 1.5rem !important;
+    }
+    .resume-header {
+        padding-bottom: 0.5rem;
+    }
+    .resume-header .name {
+        font-size: 1.6rem;
+        letter-spacing: 0.08rem;
+    }
+    .resume-header .title {
+        font-size: 1.05rem;
+    }
+    .resume-header .media-body {
+        padding: 1rem !important;
+    }
+    .resume-timeline {
+        padding-left: 1.5rem;
+    }
+    .resume-timeline-item:before {
+        left: -28px;
+    }
+    .resume-section-title {
+        font-size: 1.1rem;
+    }
+    .resume-position-title {
+        font-size: 1.05rem;
+    }
+    .resume-timeline-item-desc-heading {
+        font-size: 0.95rem;
+    }
+    .resume-company-name,
+    .resume-position-time {
+        font-size: 0.8rem;
+    }
+    .badge-primary,
+    .badge-light {
+        font-size: 0.7rem;
+        white-space: normal;
+    }
+    /* Toggle: tuck against the header corner */
+    .theme-toggle {
+        top: 0.6rem;
+        right: 0.6rem;
+        height: 32px;
+        padding: 0 0.7rem 0 0.55rem;
+        font-size: 0.72rem;
+        gap: 0.4rem;
+    }
+    .theme-toggle .theme-toggle-icon {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small phones: hide the toggle label, keep just the icon */
+@media (max-width: 400px) {
+    .resume-header .name {
+        font-size: 1.4rem;
+        letter-spacing: 0.06rem;
+    }
+    .resume-header .title {
+        font-size: 0.95rem;
     }
     .theme-toggle {
+        padding: 0;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        justify-content: center;
+        gap: 0;
+    }
+    .theme-toggle .theme-toggle-label {
+        display: none;
+    }
+    .theme-toggle .theme-toggle-icon {
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================================
+   Print: clean light-theme output, no toggle, paginated nicely
+   ============================================================ */
+@media print {
+    /* Make sure colors print as designed (Chrome/Edge default to B&W) */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Force light theme even if user printed while in dark mode */
+    html,
+    html.dark-mode {
+        background: white !important;
+    }
+    body,
+    html.dark-mode body {
+        background: white !important;
+        color: #1a1a1a !important;
+    }
+    .resume-wrapper,
+    html.dark-mode .resume-wrapper {
+        background: white !important;
+        padding: 0 !important;
+    }
+    .resume-wrapper-inner.bg-white,
+    .bg-white,
+    html.dark-mode .resume-wrapper-inner.bg-white,
+    html.dark-mode .bg-white {
+        background-color: white !important;
+        box-shadow: none !important;
+    }
+    .shadow-lg {
+        box-shadow: none !important;
+    }
+
+    /* Restore the original light-theme text colors */
+    html.dark-mode .resume-section-content { color: #58677c !important; }
+    html.dark-mode .resume-section-title { color: #80425F !important; }
+    html.dark-mode .resume-position-title,
+    html.dark-mode .resume-skills-cat,
+    html.dark-mode .resume-degree,
+    html.dark-mode .resume-award-name,
+    html.dark-mode .resume-lang-name { color: #434E5E !important; }
+    html.dark-mode .resume-company-name,
+    html.dark-mode .resume-degree-org,
+    html.dark-mode .resume-award-desc { color: #58677c !important; }
+    html.dark-mode .resume-position-time,
+    html.dark-mode .resume-degree-time,
+    html.dark-mode .resume-award-icon { color: #aab4c3 !important; }
+    html.dark-mode strong,
+    html.dark-mode b { color: #1a1a1a !important; }
+    html.dark-mode em { color: #58677c !important; }
+    html.dark-mode .badge-light {
+        background-color: #f8f9fa !important;
+        color: #212529 !important;
+        border: 1px solid #dee2e6 !important;
+    }
+    html.dark-mode .badge-primary {
+        background-color: #80425F !important;
+        color: white !important;
+    }
+    html.dark-mode .resume-header {
+        background: #80425F !important;
+    }
+    html.dark-mode .resume-timeline:before {
+        background: #d9b5c6 !important;
+    }
+    html.dark-mode .resume-timeline-item:before {
+        background: white !important;
+        border-color: #a25378 !important;
+    }
+
+    /* Hide the toggle on paper */
+    .theme-toggle {
         display: none !important;
+    }
+
+    /* Tighten the layout so it fits a paper page */
+    .resume-body.p-5 {
+        padding: 1.25rem !important;
+    }
+    .resume-header {
+        padding: 0.75rem !important;
+        min-height: 0 !important;
+    }
+    .resume-header .picture {
+        width: 110px !important;
+    }
+    .resume-header .name {
+        font-size: 1.6rem;
+    }
+    .resume-header .title {
+        font-size: 1rem;
+    }
+
+    /* Page-break control: keep each job entry together */
+    .resume-timeline-item,
+    article.resume-timeline-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    .resume-section-title {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+    section.resume-section {
+        page-break-inside: auto;
+    }
+
+    /* Don't print URLs after links — keeps text clean */
+    a,
+    a:visited {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+    a[href]:after {
+        content: "" !important;
+    }
+
+    /* Compact footer */
+    .footer {
+        font-size: 0.7rem;
+        padding: 0.5rem 0 !important;
+    }
+
+    /* Standard A4-ish margins */
+    @page {
+        margin: 12mm 10mm;
     }
 }
