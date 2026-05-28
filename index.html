@@ -47,11 +47,19 @@
 <article class="resume-wrapper text-center position-relative">
     <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
         <header class="resume-header pt-4 pt-md-0">
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <i class="fas fa-moon theme-toggle-icon theme-icon-moon" aria-hidden="true"></i>
-                <i class="fas fa-sun theme-toggle-icon theme-icon-sun" aria-hidden="true"></i>
-                <span id="theme-toggle-label" class="theme-toggle-label">Dark mode</span>
-            </button>
+            <div class="header-actions">
+                <button id="theme-toggle" class="header-action-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon header-action-icon theme-icon-moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun header-action-icon theme-icon-sun" aria-hidden="true"></i>
+                    <span id="theme-toggle-label" class="header-action-label">Dark mode</span>
+                </button>
+                <button id="print-btn" class="header-action-btn print-btn" type="button"
+                        aria-label="Print or save as PDF"
+                        title="Print or save as PDF">
+                    <i class="fas fa-print header-action-icon" aria-hidden="true"></i>
+                    <span class="header-action-label">Print / PDF</span>
+                </button>
+            </div>
             <div class="media flex-column flex-md-row align-items-md-center">
                 <img class="mr-3 img-fluid picture mx-auto align-self-md-center" src="assets/images/profile.jpg" alt="">
                 <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
@@ -674,6 +682,14 @@
                     sync();
                 });
             }
+        }
+
+        // Print / save-as-PDF button
+        var printBtn = document.getElementById('print-btn');
+        if (printBtn) {
+            printBtn.addEventListener('click', function () {
+                window.print();
+            });
         }
     })();
 </script>
