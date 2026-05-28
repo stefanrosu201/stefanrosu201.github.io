@@ -1,4 +1,12 @@
 /* ============================================================
+   Card aesthetics — rounded corners on the resume container
+   ============================================================ */
+.resume-wrapper-inner {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* ============================================================
    Dark Mode — overrides applied when <html> has .dark-mode
    ============================================================ */
 
@@ -382,6 +390,9 @@ body,
     }
     .shadow-lg {
         box-shadow: none !important;
+    }
+    .resume-wrapper-inner {
+        border-radius: 0 !important;
     }
 
     /* Restore the original light-theme text colors */
