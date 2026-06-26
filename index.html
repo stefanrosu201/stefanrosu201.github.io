@@ -297,6 +297,24 @@
         }
         .main-header .subtitle b { color: var(--accent); font-weight: 600; }
         [data-theme="dark"] .main-header .subtitle b { color: #a78bfa; }
+        .name-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; }
+        .remote-badge {
+            display: inline-flex; align-items: center; gap: 7px;
+            font-size: .78rem; font-weight: 700; letter-spacing: .01em;
+            color: #15803d; background: rgba(34,197,94,0.12);
+            border: 1px solid rgba(34,197,94,0.35);
+            border-radius: 30px; padding: 5px 13px; white-space: nowrap;
+        }
+        [data-theme="dark"] .remote-badge { color: #4ade80; background: rgba(34,197,94,0.14); border-color: rgba(34,197,94,0.4); }
+        .remote-dot {
+            width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+            animation: remotePulse 2s infinite;
+        }
+        @keyframes remotePulse {
+            0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
+            70% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+            100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+        }
 
         section { margin-bottom: 38px; }
 
@@ -618,10 +636,10 @@
         <!-- ========================= SIDEBAR ========================= -->
         <aside class="sidebar">
             <div class="avatar-wrap">
-                <img class="avatar" src="assets/images/profile.jpg" alt="Stefan-Octavian Rosu">
+                <img class="avatar" src="assets/images/profile.png" alt="Stefan-Octavian Rosu">
             </div>
             <h1 class="name">Stefan-Octavian<br>Rosu</h1>
-            <p class="role">Senior Software Engineer<br>Java · Kotlin · Spring Boot</p>
+            <p class="role">Senior Software Engineer<br>Java · Kotlin · Spring Boot · AI</p>
 
             <div class="side-section">
                 <h3 class="side-title"><i class="fas fa-address-card"></i> Contact</h3>
@@ -707,6 +725,22 @@
                         <span class="tag">Unix / Bash</span>
                     </div>
                 </div>
+
+                <div class="skill-group">
+                    <h4>AI &amp; Agentic</h4>
+                    <div class="tags">
+                        <span class="tag">Claude / Claude Code</span>
+                        <span class="tag">ChatGPT</span>
+                        <span class="tag">Gemini</span>
+                        <span class="tag">GitHub Copilot</span>
+                        <span class="tag">Agentic AI</span>
+                        <span class="tag">Anthropic SDK</span>
+                        <span class="tag">Multi-Agent Pipelines</span>
+                        <span class="tag">MCP</span>
+                        <span class="tag">GitHub App Agents</span>
+                        <span class="tag">AI-Assisted Development</span>
+                    </div>
+                </div>
             </div>
 
             <div class="side-section">
@@ -770,8 +804,11 @@
         <main class="main">
             <header class="main-header">
                 <div class="hi">Curriculum Vitae</div>
-                <h1>Stefan-Octavian Rosu</h1>
-                <div class="subtitle">Senior Software Engineer — <b>Java</b> · <b>Kotlin</b> · <b>Spring Boot</b> · <b>Microservices</b></div>
+                <div class="name-row">
+                    <h1>Stefan-Octavian Rosu</h1>
+                    <span class="remote-badge"><span class="remote-dot"></span> Remote Only</span>
+                </div>
+                <div class="subtitle">Senior Software Engineer — <b>Java</b> · <b>Kotlin</b> · <b>Spring Boot</b> · <b>Microservices</b> · <b>AI</b></div>
             </header>
 
             <div class="stats">
@@ -786,7 +823,9 @@
                 <h2 class="section-title"><span class="bar"></span> Profile</h2>
                 <p>Senior Software Engineer with <b>10+ years</b> building scalable back-end and full-stack systems in <b>Java (8–21)</b>, <b>Kotlin</b>, and <b>Spring Boot</b> across banking, fintech, automotive, and e-commerce. Specialized in microservices architecture, REST &amp; GraphQL APIs, relational and graph databases, and CI/CD-driven delivery.</p>
                 <p>Delivered regulatory-reporting, payments, and internal developer platforms for organizations such as <b>Raiffeisen Bank</b>, <b>Deutsche Bank</b>, <b>Edenred</b>, and <b>SAP</b> — designing high-throughput services, optimizing SQL procedures spanning tens of thousands of lines, and shipping audited, production-grade features end to end.</p>
-                <p>Open to senior remote back-end and full-stack roles (contract or full-time) where I can own complex systems from architecture to production and grow within a high-performing, international team.</p>
+                <p>Right now, I'm increasingly building with <b>AI</b> across both my <b>personal and professional projects</b>. On side projects I run a full <b>agentic</b> setup — a <b>Claude (Claude Code)</b> pipeline of role-based agents — analyst, architect, developer, reviewer, team-lead — each operating as its own <b>GitHub App</b> across branches, pull requests, and releases. At work I use AI tools as pair-programmers to accelerate delivery, so in both settings I scope and steer the work while AI handles much of the execution.</p>
+                <p>I'm genuinely <b>open to AI</b> and actively adopting it to deliver <b>better and faster</b>, while keeping a human review on everything that ships.</p>
+                <p>Open to senior <b>remote</b> back-end and full-stack roles (contract or full-time) where I can own complex systems from architecture to production and grow within a high-performing, international team.</p>
             </section>
 
             <!-- Experience -->
@@ -808,6 +847,7 @@
                             <li>Helped build a payment-orchestration integration with <b>WISE</b> on the latest <b>Java 21</b> / <b>Spring Boot</b> stack, enabling cross-border payment flows through the bank's orchestration layer.</li>
                             <li>Sole developer on a new <b>top-up</b> capability, integrating multiple internal Raiffeisen systems — including <b>3D Secure</b> authentication — end to end into a single, reliable flow.</li>
                             <li>Owned delivery on a modern GitOps pipeline — <b>GitHub Actions</b> with <b>Kargo</b> and <b>Argo CD</b> promoting releases across environments on the internal <b>Mercury</b> platform, <b>Docker</b>-containerized databases, and <b>Grafana</b> for monitoring and observability.</li>
+                            <li>Leverage <b>Claude (Claude Code)</b>, <b>GitHub Copilot</b>, and an <b>internal ChatGPT</b> as AI pair-programmers to accelerate delivery on the WISE integration and the <b>top-up project I'm currently building</b> — scaffolding, refactoring, test generation, and code review.</li>
                         </ul>
 
                         <div class="subrole">Full-Stack Developer — Engineering Platform</div>
@@ -1090,16 +1130,16 @@
                 <h2 class="section-title"><i class="fas fa-heart"></i> Interests</h2>
                 <div class="interests">
                     <span class="interest"><i class="fas fa-code"></i> Programming</span>
-                    <span class="interest"><i class="fas fa-microchip"></i> Tech Gadgets</span>
-                    <span class="interest"><i class="fas fa-chess"></i> Board Games</span>
-                    <span class="interest"><i class="fas fa-dumbbell"></i> Gym</span>
-                    <span class="interest"><i class="fas fa-car"></i> Cars</span>
-                    <span class="interest"><i class="fas fa-circle"></i> Pool</span>
-                    <span class="interest"><i class="fas fa-tv"></i> TV Shows</span>
-                    <span class="interest"><i class="fas fa-film"></i> Movies</span>
-                    <span class="interest"><i class="fas fa-gamepad"></i> Gaming</span>
                     <span class="interest"><i class="fas fa-brain"></i> AI</span>
                     <span class="interest"><i class="fas fa-robot"></i> Agentic AI</span>
+                    <span class="interest"><i class="fas fa-microchip"></i> Tech Gadgets</span>
+                    <span class="interest"><i class="fas fa-gamepad"></i> Gaming</span>
+                    <span class="interest"><i class="fas fa-tv"></i> TV Shows</span>
+                    <span class="interest"><i class="fas fa-film"></i> Movies</span>
+                    <span class="interest"><i class="fas fa-chess"></i> Board Games</span>
+                    <span class="interest"><i class="fas fa-circle"></i> Pool</span>
+                    <span class="interest"><i class="fas fa-dumbbell"></i> Gym</span>
+                    <span class="interest"><i class="fas fa-car"></i> Cars</span>
                     <span class="interest"><i class="fas fa-plane"></i> Travelling</span>
                 </div>
             </section>
