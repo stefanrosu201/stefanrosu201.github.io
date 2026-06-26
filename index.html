@@ -403,6 +403,8 @@
             white-space: nowrap;
         }
         [data-theme="dark"] .job-time { color: #a78bfa; }
+        .job-when { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .job-dur { font-size: .68rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--accent-soft); white-space: nowrap; }
         .job-company {
             font-size: .88rem;
             font-weight: 600;
@@ -495,6 +497,14 @@
         .proj-name { font-size: .92rem; font-weight: 700; color: var(--text); }
         .proj-time { font-size: .7rem; color: var(--text-faint); font-family: 'JetBrains Mono', monospace; }
         .proj-desc { font-size: .84rem; color: var(--text-soft); margin: 0; }
+        .proj-tech { margin-top: 10px; font-size: .72rem; color: var(--text-faint); font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 7px; }
+        .proj-tech i { color: var(--accent); }
+        .proj-ai { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; font-size: .68rem; font-weight: 600; letter-spacing: .02em; color: #fff; background: var(--accent-grad); border-radius: 30px; padding: 4px 11px; }
+        .proj-ai-note { margin: 8px 0 0; font-size: .78rem; line-height: 1.55; color: var(--text-soft); }
+        .proj-ai-note b { color: var(--text); font-weight: 600; }
+        .proj-todo { margin-top: 10px; font-size: .74rem; color: var(--text-faint); display: flex; align-items: flex-start; gap: 7px; line-height: 1.5; }
+        .proj-todo i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
+        .proj-todo b { color: var(--text-soft); font-weight: 600; }
 
         /* Interests */
         .interests { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -661,6 +671,7 @@
                     <h4>Front-End</h4>
                     <div class="tags">
                         <span class="tag">Angular</span>
+                        <span class="tag">TypeScript</span>
                         <span class="tag">JavaScript</span>
                         <span class="tag">HTML5</span>
                         <span class="tag">CSS3</span>
@@ -726,14 +737,7 @@
                         <div class="lang-name">English</div>
                         <div class="lang-level">Professional (C1)</div>
                     </div>
-                    <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
-                </div>
-                <div class="lang-row">
-                    <div>
-                        <div class="lang-name">German</div>
-                        <div class="lang-level">Beginner</div>
-                    </div>
-                    <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                    <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
                 </div>
             </div>
 
@@ -771,7 +775,7 @@
             </header>
 
             <div class="stats">
-                <div class="stat"><div class="num">8+</div><div class="label">Years Experience</div></div>
+                <div class="stat"><div class="num">10+</div><div class="label">Years Experience</div></div>
                 <div class="stat"><div class="num">10+</div><div class="label">Companies</div></div>
                 <div class="stat"><div class="num">4</div><div class="label">Industries</div></div>
                 <div class="stat"><div class="num">21</div><div class="label">Java up to</div></div>
@@ -780,7 +784,7 @@
             <!-- Summary -->
             <section class="summary">
                 <h2 class="section-title"><span class="bar"></span> Profile</h2>
-                <p>Senior Software Engineer with <b>8+ years</b> building scalable back-end and full-stack systems in <b>Java (8–21)</b>, <b>Kotlin</b>, and <b>Spring Boot</b> across banking, fintech, automotive, and e-commerce. Specialized in microservices architecture, REST &amp; GraphQL APIs, relational and graph databases, and CI/CD-driven delivery.</p>
+                <p>Senior Software Engineer with <b>10+ years</b> building scalable back-end and full-stack systems in <b>Java (8–21)</b>, <b>Kotlin</b>, and <b>Spring Boot</b> across banking, fintech, automotive, and e-commerce. Specialized in microservices architecture, REST &amp; GraphQL APIs, relational and graph databases, and CI/CD-driven delivery.</p>
                 <p>Delivered regulatory-reporting, payments, and internal developer platforms for organizations such as <b>Raiffeisen Bank</b>, <b>Deutsche Bank</b>, <b>Edenred</b>, and <b>SAP</b> — designing high-throughput services, optimizing SQL procedures spanning tens of thousands of lines, and shipping audited, production-grade features end to end.</p>
                 <p>Open to senior remote back-end and full-stack roles (contract or full-time) where I can own complex systems from architecture to production and grow within a high-performing, international team.</p>
             </section>
@@ -794,17 +798,16 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Senior Software Developer</h3>
-                            <span class="job-time">Nov 2023 — Present</span>
+                            <div class="job-when"><span class="job-time">Nov 2023 — Present</span><span class="job-dur">2 yr 7 mo</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>Raiffeisen Tech Romania, Bucharest</div>
-                        <p class="job-intro">Full-stack developer on two business-critical internal applications — Regulatory Reporting and an Engineering Platform — improving compliance reporting and engineering auditability bank-wide.</p>
+                        <p class="job-intro">Full-stack developer across business-critical internal applications — payment orchestration, an Engineering Platform, and Regulatory Reporting — improving cross-border payment flows, engineering auditability, and compliance reporting bank-wide.</p>
 
-                        <div class="subrole">Full-Stack Developer — Regulatory Reporting</div>
+                        <div class="subrole">Back-End Developer — Payment Orchestration</div>
                         <ul class="bullets">
-                            <li>Built end-to-end regulatory-reporting flows with <b>Angular</b>, <b>Java 17</b>, <b>Kotlin</b>, and <b>Spring Boot</b>, delivering features from UI to database that supported recurring submissions to financial regulators.</li>
-                            <li>Refactored and optimized <b>PostgreSQL</b> stored procedures spanning tens of thousands of lines, reducing report-generation time and eliminating recurring data-accuracy defects.</li>
-                            <li>Evolved PostgreSQL schemas to meet changing regulatory requirements while keeping the production system backward-compatible and audit-ready.</li>
-                            <li>Authored back-end unit tests that raised coverage on critical modules and prevented regressions in compliance calculations.</li>
+                            <li>Helped build a payment-orchestration integration with <b>WISE</b> on the latest <b>Java 21</b> / <b>Spring Boot</b> stack, enabling cross-border payment flows through the bank's orchestration layer.</li>
+                            <li>Sole developer on a new <b>top-up</b> capability, integrating multiple internal Raiffeisen systems — including <b>3D Secure</b> authentication — end to end into a single, reliable flow.</li>
+                            <li>Owned delivery on a modern GitOps pipeline — <b>GitHub Actions</b> with <b>Kargo</b> and <b>Argo CD</b> promoting releases across environments on the internal <b>Mercury</b> platform, <b>Docker</b>-containerized databases, and <b>Grafana</b> for monitoring and observability.</li>
                         </ul>
 
                         <div class="subrole">Full-Stack Developer — Engineering Platform</div>
@@ -815,10 +818,19 @@
                             <li>Implemented back-end integration tests and front-end unit tests to keep the platform stable as it scaled across teams.</li>
                         </ul>
 
+                        <div class="subrole">Full-Stack Developer — Regulatory Reporting</div>
+                        <ul class="bullets">
+                            <li>Built end-to-end regulatory-reporting flows with <b>Angular</b>, <b>Java 17</b>, <b>Kotlin</b>, and <b>Spring Boot</b>, delivering features from UI to database that supported recurring submissions to financial regulators.</li>
+                            <li>Refactored and optimized <b>PostgreSQL</b> stored procedures spanning tens of thousands of lines, reducing report-generation time and eliminating recurring data-accuracy defects.</li>
+                            <li>Evolved PostgreSQL schemas to meet changing regulatory requirements while keeping the production system backward-compatible and audit-ready.</li>
+                            <li>Authored back-end unit tests that raised coverage on critical modules and prevented regressions in compliance calculations.</li>
+                        </ul>
+
                         <div class="stack">
                             <span class="chip">Java 21</span><span class="chip">Kotlin</span><span class="chip">Angular</span>
                             <span class="chip">Spring Boot</span><span class="chip">GraphQL</span><span class="chip">Neo4j</span>
                             <span class="chip">PostgreSQL</span><span class="chip">Git</span><span class="chip">GitHub Actions</span>
+                            <span class="chip">Docker</span><span class="chip">Kargo</span><span class="chip">Argo CD</span><span class="chip">Grafana</span><span class="chip">Mercury</span><span class="chip">WISE API</span>
                         </div>
                     </article>
 
@@ -826,7 +838,7 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Senior Software Developer — Contractor</h3>
-                            <span class="job-time">Nov 2021 — Nov 2023</span>
+                            <div class="job-when"><span class="job-time">Nov 2021 — Nov 2023</span><span class="job-dur">2 yr</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>Rinf Tech, Romania</div>
                         <p class="job-intro">Senior back-end engineer delivering <b>Java 17</b> microservices for two enterprise clients — Edenred and Deutsche Bank — focused on scalability, data integrity, and clean API contracts.</p>
@@ -858,7 +870,7 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Senior Software Developer</h3>
-                            <span class="job-time">Apr 2021 — Nov 2021</span>
+                            <div class="job-when"><span class="job-time">Apr 2021 — Nov 2021</span><span class="job-dur">7 mo</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>N-Able, Romania</div>
                         <p class="job-intro">Senior back-end engineer building <b>Java 8</b> / <b>Spring</b> services for managed service providers (MSPs), with delivery containerized via <b>Docker</b> and <b>Kubernetes</b>.</p>
@@ -879,7 +891,7 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Software Developer</h3>
-                            <span class="job-time">Feb 2020 — Apr 2021</span>
+                            <div class="job-when"><span class="job-time">Feb 2020 — Apr 2021</span><span class="job-dur">1 yr 2 mo</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>Garrett Advancing Motion, Romania</div>
                         <p class="job-intro">Back-end developer on an automotive software project, delivering reliable <b>Java 8</b> / <b>Spring</b> services for a global manufacturer of turbocharging and electrification technologies.</p>
@@ -899,7 +911,7 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Associate Integration Development Consultant</h3>
-                            <span class="job-time">Oct 2018 — Feb 2020</span>
+                            <div class="job-when"><span class="job-time">Oct 2018 — Feb 2020</span><span class="job-dur">1 yr 4 mo</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>SAP, Romania</div>
                         <p class="job-intro">Full-stack developer on an enterprise e-commerce platform, delivering end-to-end features with <b>Java 8</b> and <b>Spring</b> while deepening expertise across the SAP ecosystem.</p>
@@ -919,7 +931,7 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Software Developer</h3>
-                            <span class="job-time">Sep 2017 — Oct 2018</span>
+                            <div class="job-when"><span class="job-time">Sep 2017 — Oct 2018</span><span class="job-dur">1 yr 1 mo</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>Deloitte Digital, Romania</div>
                         <p class="job-intro">Back-end developer across two projects: a financial application built on <b>Java 8</b>, <b>Spring</b>, and microservices, and a <b>SAP Hybris</b> e-commerce solution.</p>
@@ -949,7 +961,7 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Junior Java Developer</h3>
-                            <span class="job-time">Oct 2015 — Jul 2016</span>
+                            <div class="job-when"><span class="job-time">Oct 2015 — Jul 2016</span><span class="job-dur">9 mo</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>Avantevo, Romania</div>
                         <p class="job-intro">Focused on bug fixing and content updates for existing applications, enhancing functionality and user experience.</p>
@@ -968,7 +980,7 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Junior Front-End Developer</h3>
-                            <span class="job-time">Jul 2015 — Oct 2015</span>
+                            <div class="job-when"><span class="job-time">Jul 2015 — Oct 2015</span><span class="job-dur">3 mo</span></div>
                         </div>
                         <div class="job-company"><i class="fas fa-building"></i>Intelligent Technologies, Romania</div>
                         <p class="job-intro">Developed interactive web pages and enhanced existing functionalities to meet client specifications.</p>
@@ -1008,7 +1020,48 @@
             <!-- Projects -->
             <section>
                 <h2 class="section-title"><i class="fas fa-lightbulb"></i> Personal Projects</h2>
+                <p class="job-intro">My 2026 projects are built with an <b>agentic-AI workflow</b> powered by <b>Claude (Claude Code)</b>. I first take each app to a <b>mature enough base</b> by hand, then <b>inject a pipeline of role-based agents</b> — <b>analyst → architect → developer → reviewer → team-lead</b>, each running as its own <b>GitHub App</b> identity — into the repo. From there I <b>create the backlog and let them build autonomously</b> across feature branches, pull requests, and a <code>dev → main</code> flow, stepping in mainly to <b>review deployments to production</b>.</p>
                 <div class="proj-grid">
+                    <div class="proj">
+                        <div class="proj-head">
+                            <span class="proj-ico"><i class="fas fa-stethoscope"></i></span>
+                            <div>
+                                <div class="proj-name">quiet-clinic</div>
+                                <div class="proj-time">2026 · ~90% complete</div>
+                            </div>
+                        </div>
+                        <p class="proj-desc">A calm, web-first clinic management platform for appointments and patient workflows. Built as a PWA — runs fully in the browser with push notifications and barcode scanning, so no dedicated Android/iOS apps are needed.</p>
+                        <div class="proj-tech"><i class="fas fa-code"></i> Next.js · React · TypeScript · Tailwind · Supabase · Vercel</div>
+                        <div class="proj-ai"><i class="fas fa-robot"></i> Built with Claude · agentic AI</div>
+                        <p class="proj-ai-note">A <b>five-persona Claude pipeline</b> (analyst, architect, developer, reviewer, team-lead) builds the app, each agent posting and pushing as its <b>own GitHub App bot</b>. Work flows through feature/bugfix branches, automated reviews, and <b>250+ pull requests</b> into a gated <code>dev → main</code> release, with the reviewer curating a durable lessons checklist and the team-lead orchestrating production releases.</p>
+                    </div>
+                    <div class="proj">
+                        <div class="proj-head">
+                            <span class="proj-ico"><i class="fas fa-wave-square"></i></span>
+                            <div>
+                                <div class="proj-name">agent-pulse</div>
+                                <div class="proj-time">2026 · Side project</div>
+                            </div>
+                        </div>
+                        <p class="proj-desc">A lightweight tool to monitor and orchestrate my AI development agents — keeping a pulse on what they're working on across projects.</p>
+                        <div class="proj-tech"><i class="fas fa-code"></i> Next.js · React · TypeScript · Anthropic SDK</div>
+                        <div class="proj-ai"><i class="fas fa-robot"></i> Built with Claude · agentic AI</div>
+                        <p class="proj-ai-note">Built with Claude on the <b>Anthropic SDK</b> — a live, multi-project dashboard that monitors my <b>Claude subagents</b> as they work, reading their transcript signals to show each instance's model, real-time state, and a "why it's stuck" reason, and auto-cleaning stalled agents.</p>
+                        <p class="proj-todo"><i class="fas fa-list-check"></i> <span><b>On the roadmap:</b> per-agent and per-project <b>token-usage &amp; cost tracking</b>, with historical trends.</span></p>
+                    </div>
+                    <div class="proj">
+                        <div class="proj-head">
+                            <span class="proj-ico"><i class="fas fa-square-parking"></i></span>
+                            <div>
+                                <div class="proj-name">unde-o-las</div>
+                                <div class="proj-time">2026 · In development</div>
+                            </div>
+                        </div>
+                        <p class="proj-desc">An app that lets a blocked driver reach a parked car's owner — via anonymous in-app chat or a masked phone call — without either side ever seeing a real phone number. Under active development, making steady progress.</p>
+                        <div class="proj-tech"><i class="fas fa-code"></i> Java 21 · Spring Boot microservices · React Native (Expo) · React · Supabase</div>
+                        <div class="proj-ai"><i class="fas fa-robot"></i> Built with Claude · agentic AI</div>
+                        <p class="proj-ai-note">Developed with <b>Claude Code</b> driving the analysis → architecture → development → review loop across a polyglot stack — a <b>Java 21 / Spring Boot</b> service layer, a <b>React Native (Expo)</b> mobile app, and a <b>React</b> web app — including the migration of several backend services onto Supabase.</p>
+                    </div>
                     <div class="proj">
                         <div class="proj-head">
                             <span class="proj-ico"><i class="fas fa-map-location-dot"></i></span>
@@ -1042,8 +1095,12 @@
                     <span class="interest"><i class="fas fa-dumbbell"></i> Gym</span>
                     <span class="interest"><i class="fas fa-car"></i> Cars</span>
                     <span class="interest"><i class="fas fa-circle"></i> Pool</span>
-                    <span class="interest"><i class="fas fa-tv"></i> TV &amp; Movies</span>
+                    <span class="interest"><i class="fas fa-tv"></i> TV Shows</span>
+                    <span class="interest"><i class="fas fa-film"></i> Movies</span>
                     <span class="interest"><i class="fas fa-gamepad"></i> Gaming</span>
+                    <span class="interest"><i class="fas fa-brain"></i> AI</span>
+                    <span class="interest"><i class="fas fa-robot"></i> Agentic AI</span>
+                    <span class="interest"><i class="fas fa-plane"></i> Travelling</span>
                 </div>
             </section>
         </main>
