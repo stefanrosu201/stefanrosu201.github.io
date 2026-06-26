@@ -219,6 +219,16 @@
             color: #fff;
             border-color: transparent;
         }
+        .socials { display: flex; justify-content: center; gap: 18px; margin: 0 0 24px; }
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.25rem;
+            color: var(--on-dark);
+            opacity: .8;
+            transition: opacity .2s ease, color .2s ease, transform .2s ease;
+        }
+        .socials a:hover { opacity: 1; color: #fff; transform: translateY(-2px); }
 
         /* Skill groups */
         .skill-group { margin-bottom: 16px; }
@@ -683,6 +693,15 @@
             </div>
             <h1 class="name">Stefan-Octavian<br>Rosu</h1>
             <p class="role">Senior Software Engineer<br>Java · Kotlin · Spring Boot · AI</p>
+
+            <div class="socials">
+                <a href="https://github.com/stefanrosu201" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/%C8%99tefan-octavian-ro%C8%99u-86367764/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
 
             <div class="side-section">
                 <h3 class="side-title"><i class="fas fa-address-card"></i> Contact</h3>
