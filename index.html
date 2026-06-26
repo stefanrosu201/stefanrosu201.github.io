@@ -1,591 +1,1082 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <title>Stefan-Octavian ROSU - Curriculum Vitae</title>
-
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Curriculum Vitae">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <title>Stefan-Octavian Rosu — Senior Software Engineer</title>
+    <meta name="description" content="Stefan-Octavian Rosu — Senior Software Engineer specializing in Java, Kotlin, Spring Boot, and microservices.">
+    <meta name="author" content="Stefan-Octavian Rosu">
     <link rel="shortcut icon" type="image/png" href="icons/favicon.png">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
-          rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome JS-->
-    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js"
-            integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a"
-            crossorigin="anonymous"></script>
-    <script src="assets/js/moment.min.js"></script>
-    <script src="assets/js/moment-precise-range.js"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <style>
+        /* ============================================================
+           Design tokens
+           ============================================================ */
+        :root {
+            --accent: #6366f1;
+            --accent-2: #8b5cf6;
+            --accent-soft: rgba(99, 102, 241, 0.12);
+            --accent-grad: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
 
-    <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="assets/css/pillar-6.css">
+            --bg: #eef1f7;
+            --surface: #ffffff;
+            --surface-2: #f8fafc;
+            --sidebar: #0f172a;
+            --sidebar-2: #1e293b;
 
+            --text: #1e293b;
+            --text-soft: #475569;
+            --text-faint: #94a3b8;
+            --on-dark: #e2e8f0;
+            --on-dark-soft: #94a3b8;
 
+            --border: #e2e8f0;
+            --border-dark: rgba(148, 163, 184, 0.18);
+
+            --shadow: 0 10px 40px -12px rgba(15, 23, 42, 0.25), 0 2px 8px -2px rgba(15, 23, 42, 0.08);
+            --radius: 20px;
+            --radius-sm: 10px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0b1120;
+            --surface: #131a2b;
+            --surface-2: #0f1626;
+            --sidebar: #060912;
+            --sidebar-2: #0f172a;
+
+            --text: #e2e8f0;
+            --text-soft: #b6c2d4;
+            --text-faint: #7c8aa3;
+
+            --border: rgba(148, 163, 184, 0.14);
+            --border-dark: rgba(148, 163, 184, 0.12);
+            --accent-soft: rgba(139, 92, 246, 0.18);
+
+            --shadow: 0 10px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ============================================================
+           Base
+           ============================================================ */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background:
+                radial-gradient(1200px 600px at 100% -10%, rgba(139, 92, 246, 0.10), transparent 60%),
+                radial-gradient(1000px 500px at -10% 110%, rgba(99, 102, 241, 0.10), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            transition: background-color .35s ease, color .35s ease;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        ::selection { background: var(--accent); color: #fff; }
+
+        /* ============================================================
+           Layout shell
+           ============================================================ */
+        .page {
+            max-width: 1080px;
+            margin: 48px auto;
+            padding: 0 24px;
+        }
+
+        .resume {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: background-color .35s ease;
+        }
+
+        /* ============================================================
+           Sidebar
+           ============================================================ */
+        .sidebar {
+            background: linear-gradient(170deg, var(--sidebar) 0%, var(--sidebar-2) 100%);
+            color: var(--on-dark);
+            padding: 44px 32px;
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(400px 200px at 80% 0%, rgba(139, 92, 246, 0.22), transparent 70%);
+            pointer-events: none;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 24px;
+        }
+
+        .avatar-wrap::after {
+            content: "";
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            background: var(--accent-grad);
+            z-index: 0;
+        }
+
+        .avatar {
+            position: relative;
+            z-index: 1;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--sidebar);
+            display: block;
+        }
+
+        .sidebar .name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 0 0 6px;
+            letter-spacing: -0.01em;
+            color: #fff;
+        }
+
+        .sidebar .role {
+            text-align: center;
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--accent-2);
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+        [data-theme="dark"] .sidebar .role { color: #a78bfa; }
+
+        .side-section { margin-bottom: 30px; position: relative; }
+
+        .side-title {
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--on-dark-soft);
+            margin: 0 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .side-title i { color: var(--accent-2); font-size: .82rem; }
+        [data-theme="dark"] .side-title i { color: #a78bfa; }
+
+        .contact-list { list-style: none; padding: 0; margin: 0; }
+        .contact-list li { margin-bottom: 12px; }
+        .contact-list a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: .85rem;
+            color: var(--on-dark);
+            transition: color .2s ease;
+            word-break: break-word;
+        }
+        .contact-list a:hover { color: #fff; }
+        .contact-list .ico {
+            flex: 0 0 32px;
+            height: 32px;
+            display: grid;
+            place-items: center;
+            background: rgba(148, 163, 184, 0.12);
+            border: 1px solid var(--border-dark);
+            border-radius: 9px;
+            color: var(--accent-2);
+            font-size: .82rem;
+            transition: all .2s ease;
+        }
+        [data-theme="dark"] .contact-list .ico { color: #a78bfa; }
+        .contact-list a:hover .ico {
+            background: var(--accent-grad);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        /* Skill groups */
+        .skill-group { margin-bottom: 16px; }
+        .skill-group h4 {
+            font-size: .76rem;
+            font-weight: 600;
+            color: var(--on-dark);
+            margin: 0 0 9px;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            font-size: .72rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 7px;
+            background: rgba(148, 163, 184, 0.1);
+            border: 1px solid var(--border-dark);
+            color: var(--on-dark);
+            white-space: nowrap;
+        }
+
+        /* Education / awards in sidebar */
+        .mini-item { margin-bottom: 16px; }
+        .mini-item:last-child { margin-bottom: 0; }
+        .mini-title { font-size: .82rem; font-weight: 600; color: #fff; line-height: 1.4; }
+        .mini-org { font-size: .76rem; color: var(--on-dark-soft); margin-top: 2px; }
+        .mini-time {
+            font-size: .68rem;
+            font-weight: 600;
+            color: var(--accent-2);
+            margin-top: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        [data-theme="dark"] .mini-time { color: #a78bfa; }
+        .mini-desc { font-size: .76rem; color: var(--on-dark-soft); margin-top: 4px; line-height: 1.5; }
+
+        /* Languages */
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .lang-row:last-child { margin-bottom: 0; }
+        .lang-name { font-size: .85rem; font-weight: 600; color: #fff; }
+        .lang-level { font-size: .72rem; color: var(--on-dark-soft); }
+        .dots { display: flex; gap: 4px; margin-top: 3px; }
+        .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(148,163,184,0.25); }
+        .dot.on { background: var(--accent-2); }
+
+        /* ============================================================
+           Main column
+           ============================================================ */
+        .main { padding: 48px 48px 40px; min-width: 0; }
+
+        .main-header { margin-bottom: 32px; }
+        .main-header .hi {
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+        [data-theme="dark"] .main-header .hi { color: #a78bfa; }
+        .main-header h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin: 6px 0 4px;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        .main-header .subtitle {
+            font-size: 1rem;
+            color: var(--text-soft);
+            font-weight: 500;
+        }
+        .main-header .subtitle b { color: var(--accent); font-weight: 600; }
+        [data-theme="dark"] .main-header .subtitle b { color: #a78bfa; }
+
+        section { margin-bottom: 38px; }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--text);
+            margin: 0 0 22px;
+        }
+        .section-title .bar {
+            width: 28px;
+            height: 3px;
+            border-radius: 3px;
+            background: var(--accent-grad);
+        }
+        .section-title i { color: var(--accent); font-size: 1rem; }
+        [data-theme="dark"] .section-title i { color: #a78bfa; }
+
+        .summary p { color: var(--text-soft); margin: 0 0 12px; font-size: .94rem; }
+        .summary p:last-child { margin-bottom: 0; }
+        .summary b { color: var(--text); font-weight: 600; }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 38px;
+        }
+        .stat {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px 14px;
+            text-align: center;
+        }
+        .stat .num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        .stat .label {
+            font-size: .68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--text-faint);
+            margin-top: 4px;
+        }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 40%, var(--border) 100%);
+        }
+
+        .job { position: relative; padding-bottom: 30px; }
+        .job:last-child { padding-bottom: 0; }
+        .job::before {
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        .job-head {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 4px 16px;
+            margin-bottom: 4px;
+        }
+        .job-title { font-size: 1.06rem; font-weight: 700; color: var(--text); margin: 0; }
+        .job-time {
+            font-size: .74rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        [data-theme="dark"] .job-time { color: #a78bfa; }
+        .job-company {
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--text-soft);
+            margin-bottom: 10px;
+        }
+        .job-company i { color: var(--accent); margin-right: 6px; font-size: .8rem; }
+        [data-theme="dark"] .job-company i { color: #a78bfa; }
+
+        .job-intro { font-size: .9rem; color: var(--text-soft); margin: 0 0 12px; }
+
+        .subrole {
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 14px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .subrole::before {
+            content: "";
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent-2);
+        }
+
+        .bullets { margin: 0 0 12px; padding-left: 0; list-style: none; }
+        .bullets li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 7px;
+            font-size: .88rem;
+            color: var(--text-soft);
+        }
+        .bullets li::before {
+            content: "\f105";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            color: var(--accent);
+            font-size: .8rem;
+        }
+        [data-theme="dark"] .bullets li::before { color: #a78bfa; }
+        .bullets b { color: var(--text); font-weight: 600; }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .chip {
+            font-size: .72rem;
+            font-weight: 600;
+            padding: 4px 11px;
+            border-radius: 7px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid transparent;
+        }
+        [data-theme="dark"] .chip { color: #a78bfa; }
+
+        /* Projects */
+        .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .proj {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 18px;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .proj:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+        .proj-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .proj-ico {
+            width: 34px; height: 34px;
+            border-radius: 9px;
+            background: var(--accent-grad);
+            color: #fff;
+            display: grid; place-items: center;
+            font-size: .9rem;
+            flex-shrink: 0;
+        }
+        .proj-name { font-size: .92rem; font-weight: 700; color: var(--text); }
+        .proj-time { font-size: .7rem; color: var(--text-faint); font-family: 'JetBrains Mono', monospace; }
+        .proj-desc { font-size: .84rem; color: var(--text-soft); margin: 0; }
+
+        /* Interests */
+        .interests { display: flex; flex-wrap: wrap; gap: 8px; }
+        .interest {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--text-soft);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 6px 14px;
+        }
+        .interest i { color: var(--accent); font-size: .8rem; }
+        [data-theme="dark"] .interest i { color: #a78bfa; }
+
+        /* ============================================================
+           Floating controls
+           ============================================================ */
+        .controls {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: flex;
+            gap: 10px;
+            z-index: 50;
+        }
+        .ctrl-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 1rem;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            box-shadow: var(--shadow);
+            transition: transform .2s ease, background .2s ease, color .2s ease;
+        }
+        .ctrl-btn:hover { transform: translateY(-2px) scale(1.05); }
+        .ctrl-btn.primary { background: var(--accent-grad); color: #fff; border-color: transparent; }
+
+        /* ============================================================
+           Footer
+           ============================================================ */
+        .footer {
+            text-align: center;
+            padding: 24px 0 8px;
+            font-size: .78rem;
+            color: var(--text-faint);
+        }
+        .footer i { color: #ef4444; }
+
+        /* ============================================================
+           Responsive
+           ============================================================ */
+        @media (max-width: 860px) {
+            .page { margin: 16px auto; padding: 0 12px; }
+            .resume { grid-template-columns: 1fr; }
+            .main { padding: 32px 24px; }
+            .sidebar { padding: 36px 28px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .proj-grid { grid-template-columns: 1fr; }
+            .main-header h1 { font-size: 1.9rem; }
+            .controls { top: auto; bottom: 18px; right: 18px; }
+        }
+
+        @media (max-width: 420px) {
+            .stats { grid-template-columns: 1fr; }
+            .job-head { flex-direction: column; }
+        }
+
+        /* ============================================================
+           Print
+           ============================================================ */
+        @media print {
+            :root {
+                --bg: #fff;
+                --shadow: none;
+            }
+            body { background: #fff; }
+            .controls, .footer { display: none !important; }
+            .page { margin: 0; max-width: none; padding: 0; }
+            .resume { grid-template-columns: 300px 1fr; border-radius: 0; box-shadow: none; }
+            .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .proj:hover { transform: none; box-shadow: none; }
+            .job { page-break-inside: avoid; }
+            section { page-break-inside: avoid; }
+        }
+    </style>
 </head>
 
 <body>
 
-<article class="resume-wrapper text-center position-relative">
-    <div class="resume-wrapper-inner mx-auto text-left bg-white shadow-lg">
-        <header class="resume-header pt-4 pt-md-0">
-            <div class="media flex-column flex-md-row">
-                <img class="mr-3 img-fluid picture mx-auto" src="assets/images/profile.jpg" alt="">
-                <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
-                    <div class="primary-info">
-                        <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">Stefan-Octavian ROSU</h1>
-                        <div class="title mb-3">Senior Java Developer</div>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <a href="mailto:stefanrosu20@gmail.com" target="_blank">
-                                    <i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i>stefanrosu20@gmail.com
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tel:+40745502844">
-                                    <i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i>+40 745 502 844
-                                </a>
-                            </li>
+<div class="controls">
+    <button class="ctrl-btn" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <button class="ctrl-btn primary" onclick="window.print()" title="Print / Save as PDF" aria-label="Print">
+        <i class="fas fa-download"></i>
+    </button>
+</div>
+
+<div class="page">
+    <article class="resume">
+
+        <!-- ========================= SIDEBAR ========================= -->
+        <aside class="sidebar">
+            <div class="avatar-wrap">
+                <img class="avatar" src="assets/images/profile.jpg" alt="Stefan-Octavian Rosu">
+            </div>
+            <h1 class="name">Stefan-Octavian<br>Rosu</h1>
+            <p class="role">Senior Software Engineer<br>Java · Kotlin · Spring Boot</p>
+
+            <div class="side-section">
+                <h3 class="side-title"><i class="fas fa-address-card"></i> Contact</h3>
+                <ul class="contact-list">
+                    <li>
+                        <a href="mailto:stefanrosu20@gmail.com">
+                            <span class="ico"><i class="far fa-envelope"></i></span>
+                            stefanrosu20@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+40745502844">
+                            <span class="ico"><i class="fas fa-phone"></i></span>
+                            +40 745 502 844
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="ico"><i class="fas fa-location-dot"></i></span>
+                            Bucharest, Romania
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="side-section">
+                <h3 class="side-title"><i class="fas fa-layer-group"></i> Skills &amp; Tools</h3>
+
+                <div class="skill-group">
+                    <h4>Back-End</h4>
+                    <div class="tags">
+                        <span class="tag">Java (8–21)</span>
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">Spring Core</span>
+                        <span class="tag">Spring MVC</span>
+                        <span class="tag">Java EE</span>
+                        <span class="tag">Microservices</span>
+                        <span class="tag">REST</span>
+                        <span class="tag">GraphQL</span>
+                        <span class="tag">SAP Hybris</span>
+                        <span class="tag">Fusion</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Front-End</h4>
+                    <div class="tags">
+                        <span class="tag">Angular</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag">jQuery</span>
+                        <span class="tag">JSP</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Data</h4>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Neo4j</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Elasticsearch</span>
+                        <span class="tag">Liquibase</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>DevOps &amp; Tooling</h4>
+                    <div class="tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">TeamCity</span>
+                        <span class="tag">Apigee</span>
+                        <span class="tag">Mockito</span>
+                        <span class="tag">Unix / Bash</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <h3 class="side-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="mini-item">
+                    <div class="mini-title">MSc, Business Administration &amp; Engineering</div>
+                    <div class="mini-org">Faculty of Engineering in Foreign Languages, University Politehnica of Bucharest</div>
+                    <div class="mini-time">2018 — 2020</div>
+                </div>
+                <div class="mini-item">
+                    <div class="mini-title">BSc, Computer Science &amp; Information Technology</div>
+                    <div class="mini-org">Faculty of Engineering in Foreign Languages, University Politehnica of Bucharest</div>
+                    <div class="mini-time">2013 — 2017</div>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <h3 class="side-title"><i class="fas fa-language"></i> Languages</h3>
+                <div class="lang-row">
+                    <div>
+                        <div class="lang-name">Romanian</div>
+                        <div class="lang-level">Native</div>
+                    </div>
+                    <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+                </div>
+                <div class="lang-row">
+                    <div>
+                        <div class="lang-name">English</div>
+                        <div class="lang-level">Professional (C1)</div>
+                    </div>
+                    <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+                </div>
+                <div class="lang-row">
+                    <div>
+                        <div class="lang-name">German</div>
+                        <div class="lang-level">Beginner</div>
+                    </div>
+                    <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <h3 class="side-title"><i class="fas fa-award"></i> Certifications</h3>
+                <div class="mini-item">
+                    <div class="mini-title">IT Hackathon — Smart Technologies by Reply (1st Edition)</div>
+                    <div class="mini-desc">VR parking-skills assessment built in Unity with Logitech Momo wheel &amp; Oculus VR.</div>
+                    <div class="mini-time">2016</div>
+                </div>
+                <div class="mini-item">
+                    <div class="mini-title">CCNA 1 — Routing &amp; Switching</div>
+                    <div class="mini-org">Telecom Academy, Bucharest</div>
+                    <div class="mini-time">2016</div>
+                </div>
+                <div class="mini-item">
+                    <div class="mini-title">Cambridge Assessment CAE — C1</div>
+                    <div class="mini-org">Cambridge English Language Assessment</div>
+                    <div class="mini-time">2010</div>
+                </div>
+                <div class="mini-item">
+                    <div class="mini-title">Oracle Databases &amp; ECDL</div>
+                    <div class="mini-org">Database design, SQL &amp; computer proficiency</div>
+                    <div class="mini-time">2012 / 2013</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ========================= MAIN ========================= -->
+        <main class="main">
+            <header class="main-header">
+                <div class="hi">Curriculum Vitae</div>
+                <h1>Stefan-Octavian Rosu</h1>
+                <div class="subtitle">Senior Software Engineer — <b>Java</b> · <b>Kotlin</b> · <b>Spring Boot</b> · <b>Microservices</b></div>
+            </header>
+
+            <div class="stats">
+                <div class="stat"><div class="num">8+</div><div class="label">Years Experience</div></div>
+                <div class="stat"><div class="num">10+</div><div class="label">Companies</div></div>
+                <div class="stat"><div class="num">4</div><div class="label">Industries</div></div>
+                <div class="stat"><div class="num">21</div><div class="label">Java up to</div></div>
+            </div>
+
+            <!-- Summary -->
+            <section class="summary">
+                <h2 class="section-title"><span class="bar"></span> Profile</h2>
+                <p>Senior Software Engineer with <b>8+ years</b> building scalable back-end and full-stack systems in <b>Java (8–21)</b>, <b>Kotlin</b>, and <b>Spring Boot</b> across banking, fintech, automotive, and e-commerce. Specialized in microservices architecture, REST &amp; GraphQL APIs, relational and graph databases, and CI/CD-driven delivery.</p>
+                <p>Delivered regulatory-reporting, payments, and internal developer platforms for organizations such as <b>Raiffeisen Bank</b>, <b>Deutsche Bank</b>, <b>Edenred</b>, and <b>SAP</b> — designing high-throughput services, optimizing SQL procedures spanning tens of thousands of lines, and shipping audited, production-grade features end to end.</p>
+                <p>Open to senior remote back-end and full-stack roles (contract or full-time) where I can own complex systems from architecture to production and grow within a high-performing, international team.</p>
+            </section>
+
+            <!-- Experience -->
+            <section>
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+                <div class="timeline">
+
+                    <!-- Raiffeisen -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Senior Software Developer</h3>
+                            <span class="job-time">Nov 2023 — Present</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>Raiffeisen Tech Romania, Bucharest</div>
+                        <p class="job-intro">Full-stack developer on two business-critical internal applications — Regulatory Reporting and an Engineering Platform — improving compliance reporting and engineering auditability bank-wide.</p>
+
+                        <div class="subrole">Full-Stack Developer — Regulatory Reporting</div>
+                        <ul class="bullets">
+                            <li>Built end-to-end regulatory-reporting flows with <b>Angular</b>, <b>Java 17</b>, <b>Kotlin</b>, and <b>Spring Boot</b>, delivering features from UI to database that supported recurring submissions to financial regulators.</li>
+                            <li>Refactored and optimized <b>PostgreSQL</b> stored procedures spanning tens of thousands of lines, reducing report-generation time and eliminating recurring data-accuracy defects.</li>
+                            <li>Evolved PostgreSQL schemas to meet changing regulatory requirements while keeping the production system backward-compatible and audit-ready.</li>
+                            <li>Authored back-end unit tests that raised coverage on critical modules and prevented regressions in compliance calculations.</li>
                         </ul>
-                    </div><!--//primary-info-->
-                    <div class="secondary-info ml-md-auto mt-2">
-                        <ul class="resume-social list-unstyled">
-                            <!-- Uncomment and update with your profiles if applicable -->
-                            <!-- <li class="mb-3"><a href="#"><span class="fa-container text-center mr-2"><i class="fab fa-linkedin-in fa-fw"></i></span>linkedin.com/in/stefan-rosu</a></li> -->
-                            <!-- <li class="mb-3"><a href="#"><span class="fa-container text-center mr-2"><i class="fab fa-github-alt fa-fw"></i></span>github.com/stefanrosu</a></li> -->
+
+                        <div class="subrole">Full-Stack Developer — Engineering Platform</div>
+                        <ul class="bullets">
+                            <li>Co-built a unified internal developer platform with <b>Java 21</b>, <b>Spring Boot</b>, <b>GraphQL</b>, <b>Neo4j</b>, and <b>Angular</b>, replicating GitHub-like capabilities to give the organization full audit visibility over engineering activity.</li>
+                            <li>Integrated Git webhooks and <b>GitHub Actions</b> to automate data ingestion, removing manual steps from the auditing pipeline.</li>
+                            <li>Designed custom features and modeled relationship data in Neo4j to make cross-repository auditing fast and queryable.</li>
+                            <li>Implemented back-end integration tests and front-end unit tests to keep the platform stable as it scaled across teams.</li>
                         </ul>
-                    </div><!--//secondary-info-->
-                </div><!--//media-body-->
-            </div><!--//media-->
-        </header>
-        <div class="resume-body p-5">
-            <section class="resume-section summary-section mb-5">
-                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Career Summary</h2>
-                <div class="resume-section-content">
-                    <p class="mb-0">Dynamic and collaborative Java Developer with a proven track record of thriving in diverse, multicultural teams. I am eager to join an innovative group that pushes me to refine my expertise, embrace continuous learning, and advance my career while delivering high-impact solutions.</p>
+
+                        <div class="stack">
+                            <span class="chip">Java 21</span><span class="chip">Kotlin</span><span class="chip">Angular</span>
+                            <span class="chip">Spring Boot</span><span class="chip">GraphQL</span><span class="chip">Neo4j</span>
+                            <span class="chip">PostgreSQL</span><span class="chip">Git</span><span class="chip">GitHub Actions</span>
+                        </div>
+                    </article>
+
+                    <!-- Rinf -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Senior Software Developer — Contractor</h3>
+                            <span class="job-time">Nov 2021 — Nov 2023</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>Rinf Tech, Romania</div>
+                        <p class="job-intro">Senior back-end engineer delivering <b>Java 17</b> microservices for two enterprise clients — Edenred and Deutsche Bank — focused on scalability, data integrity, and clean API contracts.</p>
+
+                        <div class="subrole">Senior Java Back-End Developer — Edenred Digital</div>
+                        <ul class="bullets">
+                            <li>Developed REST features end to end (controller → service → repository) in <b>Java</b> and <b>Spring</b>, powering customer-facing flows on a high-volume payments platform.</li>
+                            <li>Designed and optimized <b>PostgreSQL</b> structures for customer data, improving query performance and safeguarding data consistency.</li>
+                            <li>Defined and refined API contracts with front-end developers, reducing integration rework and cutting back-and-forth during delivery.</li>
+                            <li>Wrote unit and integration tests (<b>Mockito</b>) that validated business logic and protected releases through the <b>Jenkins</b> pipeline.</li>
+                        </ul>
+
+                        <div class="subrole">Senior Java Back-End Developer — Deutsche Bank</div>
+                        <ul class="bullets">
+                            <li>Engineered microservice features end to end in <b>Java 17</b> and <b>Spring</b> within a large-scale banking architecture, integrating with <b>Elasticsearch</b> and the Fusion stack.</li>
+                            <li>Modeled and optimized data structures to meet strict performance and reliability requirements for financial workloads.</li>
+                            <li>Established clear API contracts with front-end teams to keep services loosely coupled and independently deployable.</li>
+                            <li>Built comprehensive unit and integration tests to ensure code reliability in a tightly regulated environment.</li>
+                        </ul>
+
+                        <div class="stack">
+                            <span class="chip">Java 17</span><span class="chip">Spring</span><span class="chip">Fusion</span>
+                            <span class="chip">Elasticsearch</span><span class="chip">PostgreSQL</span>
+                            <span class="chip">Mockito</span><span class="chip">Jenkins</span>
+                        </div>
+                    </article>
+
+                    <!-- N-Able -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Senior Software Developer</h3>
+                            <span class="job-time">Apr 2021 — Nov 2021</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>N-Able, Romania</div>
+                        <p class="job-intro">Senior back-end engineer building <b>Java 8</b> / <b>Spring</b> services for managed service providers (MSPs), with delivery containerized via <b>Docker</b> and <b>Kubernetes</b>.</p>
+                        <ul class="bullets">
+                            <li>Engineered and maintained high-performance REST endpoints in <b>Java</b> and <b>Spring</b>, serving MSP-facing features at scale.</li>
+                            <li>Improved database efficiency through targeted data modeling, reducing latency on frequently hit queries.</li>
+                            <li>Diagnosed and resolved critical server-side issues, stabilizing production behavior under load.</li>
+                            <li>Built a proof-of-concept for MSPs in collaboration with stakeholders, shaping requirements that fed into the production roadmap; backed work with unit and integration tests (<b>Mockito</b>).</li>
+                        </ul>
+                        <div class="stack">
+                            <span class="chip">Java 8</span><span class="chip">Spring</span><span class="chip">Docker</span>
+                            <span class="chip">Kubernetes</span><span class="chip">Jenkins</span><span class="chip">Mockito</span>
+                            <span class="chip">JavaScript</span><span class="chip">Bootstrap</span>
+                        </div>
+                    </article>
+
+                    <!-- Garrett -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Software Developer</h3>
+                            <span class="job-time">Feb 2020 — Apr 2021</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>Garrett Advancing Motion, Romania</div>
+                        <p class="job-intro">Back-end developer on an automotive software project, delivering reliable <b>Java 8</b> / <b>Spring</b> services for a global manufacturer of turbocharging and electrification technologies.</p>
+                        <ul class="bullets">
+                            <li>Developed and supported robust REST API endpoints in <b>Java</b> and <b>Spring</b>, delivering features against automotive-domain requirements.</li>
+                            <li>Designed efficient database schemas that kept data access fast and maintainable as the project grew.</li>
+                            <li>Troubleshot and resolved server-side issues, improving the stability of the running services.</li>
+                            <li>Ensured quality through unit and integration testing (<b>Mockito</b>) ahead of each release.</li>
+                        </ul>
+                        <div class="stack">
+                            <span class="chip">Java 8</span><span class="chip">Spring</span><span class="chip">Mockito</span>
+                            <span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">Bootstrap</span>
+                        </div>
+                    </article>
+
+                    <!-- SAP -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Associate Integration Development Consultant</h3>
+                            <span class="job-time">Oct 2018 — Feb 2020</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>SAP, Romania</div>
+                        <p class="job-intro">Full-stack developer on an enterprise e-commerce platform, delivering end-to-end features with <b>Java 8</b> and <b>Spring</b> while deepening expertise across the SAP ecosystem.</p>
+                        <ul class="bullets">
+                            <li>Built and integrated features from front-end to back-end in <b>Java</b> / <b>Spring</b>, owning slices of functionality through to release.</li>
+                            <li>Diagnosed and resolved critical server-side defects, improving reliability of customer-facing flows.</li>
+                            <li>Safeguarded functionality with unit testing (<b>Mockito</b>) as part of the delivery workflow.</li>
+                            <li>Completed an intensive Spring Course and an internal Angular Course to deepen framework and front-end expertise.</li>
+                        </ul>
+                        <div class="stack">
+                            <span class="chip">Java 8</span><span class="chip">Spring</span><span class="chip">Angular</span>
+                            <span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">Bootstrap</span><span class="chip">Mockito</span>
+                        </div>
+                    </article>
+
+                    <!-- Deloitte -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Software Developer</h3>
+                            <span class="job-time">Sep 2017 — Oct 2018</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>Deloitte Digital, Romania</div>
+                        <p class="job-intro">Back-end developer across two projects: a financial application built on <b>Java 8</b>, <b>Spring</b>, and microservices, and a <b>SAP Hybris</b> e-commerce solution.</p>
+
+                        <div class="subrole">Java Back-End Developer</div>
+                        <ul class="bullets">
+                            <li>Developed and maintained microservice endpoints in <b>Java</b> / <b>Spring</b>, supporting a scalable financial application.</li>
+                            <li>Built <b>Apigee</b> API flows to strengthen API management, security, and gateway routing.</li>
+                            <li>Debugged and resolved critical server-side issues to keep services dependable in production.</li>
+                            <li>Validated system integrity with unit and integration testing.</li>
+                        </ul>
+
+                        <div class="subrole">SAP Hybris Back-End Developer</div>
+                        <ul class="bullets">
+                            <li>Enhanced Product Detail Pages (PDP) and Product Listing Pages (PLP) on the <b>SAP Hybris</b> commerce platform.</li>
+                            <li>Resolved <b>SonarQube</b> findings to raise code quality and reduce technical debt.</li>
+                            <li>Troubleshot server-side defects to maintain catalog performance; completed a 3-week SAP Hybris Bootcamp.</li>
+                        </ul>
+
+                        <div class="stack">
+                            <span class="chip">Java 8</span><span class="chip">Spring</span><span class="chip">SAP Hybris</span>
+                            <span class="chip">Apigee</span><span class="chip">SonarQube</span><span class="chip">Mockito</span>
+                        </div>
+                    </article>
+
+                    <!-- Avantevo -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Junior Java Developer</h3>
+                            <span class="job-time">Oct 2015 — Jul 2016</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>Avantevo, Romania</div>
+                        <p class="job-intro">Focused on bug fixing and content updates for existing applications, enhancing functionality and user experience.</p>
+                        <ul class="bullets">
+                            <li>Resolved defects in <b>Java EE</b> applications to align functionality with acceptance criteria.</li>
+                            <li>Designed and implemented new web pages for existing systems using HTML, CSS, JavaScript, and jQuery.</li>
+                            <li>Updated web content to meet evolving client requirements.</li>
+                        </ul>
+                        <div class="stack">
+                            <span class="chip">Java EE</span><span class="chip">HTML</span><span class="chip">CSS</span>
+                            <span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">Bootstrap</span>
+                        </div>
+                    </article>
+
+                    <!-- Intelligent Technologies -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Junior Front-End Developer</h3>
+                            <span class="job-time">Jul 2015 — Oct 2015</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>Intelligent Technologies, Romania</div>
+                        <p class="job-intro">Developed interactive web pages and enhanced existing functionalities to meet client specifications.</p>
+                        <ul class="bullets">
+                            <li>Created interactive educational wizards using HTML, CSS, JavaScript, jQuery, and Bootstrap.</li>
+                            <li>Built presentation websites with Joomla for rapid deployment.</li>
+                            <li>Updated websites to align with client requirements.</li>
+                        </ul>
+                        <div class="stack">
+                            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+                            <span class="chip">jQuery</span><span class="chip">Bootstrap</span><span class="chip">Joomla</span>
+                        </div>
+                    </article>
+
+                    <!-- Ubisoft -->
+                    <article class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Quality Controller</h3>
+                            <span class="job-time">2014 &amp; 2015 (Seasonal)</span>
+                        </div>
+                        <div class="job-company"><i class="fas fa-building"></i>Ubisoft, Romania</div>
+                        <p class="job-intro">Conducted rigorous testing of video games across two seasonal engagements, documenting issues in JIRA to ensure high-quality releases.</p>
+                        <ul class="bullets">
+                            <li>Executed diverse testing scenarios to identify defects across multiple titles.</li>
+                            <li>Logged detailed issues in JIRA and designed dashboards to enhance issue tracking.</li>
+                            <li>Compiled daily reports and edited videos/photos to clarify reported issues.</li>
+                        </ul>
+                        <div class="stack">
+                            <span class="chip">JIRA</span><span class="chip">QA Testing</span>
+                            <span class="chip">Video Editing</span><span class="chip">Photo Editing</span>
+                        </div>
+                    </article>
+
                 </div>
-            </section><!--//summary-section-->
-            <div class="row">
-                <div class="col-lg-8">
-                    <section class="resume-section experience-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Work Experience</h2>
-                        <div class="resume-section-content">
-                            <div class="resume-timeline position-relative">
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Senior Software Developer</h3>
-                                            <div class="resume-company-name ml-auto">Raiffeisen Tech Romania, Bucharest</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp10">11/2023 - Present</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Contributed as a full-stack developer to two monolithic internal applications—Regulatory Reporting and Engineering Platform—enhancing operational efficiency and audit capabilities.</p>
-                                        <b>Full-Stack Developer - Regulatory Reporting</b>
-                                        <ul>
-                                            <li>Developed end-to-end flows for an internal application using Angular, Java 17, Kotlin, and Spring Boot.</li>
-                                            <li>Authored unit tests for back-end components to ensure reliability.</li>
-                                            <li>Performed extensive database operations, maintaining and optimizing SQL procedures with tens of thousands of lines of code.</li>
-                                            <li>Edited and updated PostgreSQL schemas to support regulatory requirements.</li>
-                                            <li>Managed Git workflows to facilitate team collaboration.</li>
-                                        </ul>
-                                        <b>Full-Stack Developer - Engineering Platform</b>
-                                        <ul>
-                                            <li>Built a unified internal platform with Java 21, Angular, Spring Boot, GraphQL, and Neo4j, replicating GitHub-like functionalities for auditing purposes.</li>
-                                            <li>Implemented unit and integration tests for back-end stability, with additional front-end unit testing.</li>
-                                            <li>Integrated Git webhooks and GitHub Actions to streamline development processes.</li>
-                                            <li>Designed custom features to enhance user experience and platform auditing capabilities.</li>
-                                            <li>Coordinated Git operations for seamless version control.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Kotlin</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Angular</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Spring Boot</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">GraphQL</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Neo4j</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">PostgreSQL</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Git</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">GitHub Actions</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
+            </section>
 
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Senior Software Developer - Contractor</h3>
-                                            <div class="resume-company-name ml-auto">Rinf Tech, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp9">11/2021 - 11/2023</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-
-                                        <p>Spearheaded back-end development for a project utilizing Java 17 in a microservices architecture, enhancing scalability and performance for Deutsche Bank.</p>
-                                        <b>Senior Java Back-End Developer - Edenred Digital</b>
-                                        <ul>
-                                            <li>Developed features from controller to database and back, ensuring seamless data flow.</li>
-                                            <li>Authored unit and integration tests to validate functionality and reliability.</li>
-                                            <li>Designed and optimized PostgreSQL database structures to support customer data management.</li>
-                                            <li>Collaborated with front-end developers to define and refine API contracts.</li>
-                                            <li>Managed Git workflows to streamline team coordination and version control.</li>
-                                        </ul>
-                                        <b>Senior Java Back-End Developer - Deutsche Bank</b>
-                                        <ul>
-                                            <li>Engineered features from controller to database, ensuring end-to-end functionality.</li>
-                                            <li>Developed comprehensive unit and integration tests to ensure code reliability.</li>
-                                            <li>Modeled and optimized database structures to meet project requirements.</li>
-                                            <li>Collaborated with front-end teams to establish clear API contracts.</li>
-                                            <li>Managed Git repositories to facilitate efficient team collaboration.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Spring</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Fusion</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Elasticsearch</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Mockito</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Jenkins</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Senior Software Developer</h3>
-                                            <div class="resume-company-name ml-auto">N-Able, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp8">04/2021 - 11/2021</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Aided back-end development initiatives using Java 8 and Spring, delivering scalable solutions for managed service providers (MSPs).</p>
-                                        <b>Senior Java Back-End Developer</b>
-                                        <ul>
-                                            <li>Engineered and maintained high-performance endpoints.</li>
-                                            <li>Enhanced database efficiency through strategic modeling.</li>
-                                            <li>Authored unit and integration tests to uphold quality standards.</li>
-                                            <li>Diagnosed and resolved critical server-side challenges.</li>
-                                            <li>Orchestrated Git processes for effective version control.</li>
-                                            <li>Evaluated a proof-of-concept (POC) for MSPs, collaborating with stakeholders to refine requirements.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Spring</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">CSS</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JavaScript</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Bootstrap</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Mockito</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Docker</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Jenkins</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Kubernetes</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Software Developer</h3>
-                                            <div class="resume-company-name ml-auto">Garrett Advancing Motion, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp7">02/2020 - 04/2021</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Contributed to an automotive project as a back-end developer, utilizing Java 8 and Spring to deliver reliable solutions.</p>
-                                        <b>Java Back-End Developer</b>
-                                        <ul>
-                                            <li>Developed and supported robust API endpoints.</li>
-                                            <li>Designed efficient database schemas to meet project needs.</li>
-                                            <li>Conducted unit and integration testing for quality assurance.</li>
-                                            <li>Troubleshot and resolved server-side issues effectively.</li>
-                                            <li>Managed Git repositories to facilitate team coordination.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Spring</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">CSS</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JavaScript</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Bootstrap</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Mockito</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Associate Integration Development Consultant</h3>
-                                            <div class="resume-company-name ml-auto">SAP, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp6">10/2018 - 02/2020</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Full-stack developer on an e-commerce platform, leveraging Java 8 and Spring to deliver end-to-end solutions.</p>
-                                        <b>Java Full-Stack Developer</b>
-                                        <ul>
-                                            <li>Built and integrated end-to-end features from front-end to back-end.</li>
-                                            <li>Performed unit testing to ensure functionality and reliability.</li>
-                                            <li>Addressed and resolved critical server-side defects.</li>
-                                            <li>Coordinated Git operations to support team development efforts.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements:</h4>
-                                        <ul>
-                                            <li>Completed an intensive Spring Course to deepen framework expertise.</li>
-                                            <li>Participated in an Internal Angular Course, expanding front-end skills.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Spring</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">CSS</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JavaScript</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Bootstrap</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Mockito</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Software Developer</h3>
-                                            <div class="resume-company-name ml-auto">Deloitte Digital, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp5">09/2017 - 10/2018</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Contributed to two back-end projects: a SAP Hybris-based solution and a financial application using Java 8, Spring, and microservices.</p>
-                                        <b>Java Back-End Developer</b>
-                                        <ul>
-                                            <li>Developed and maintained microservices endpoints for scalability.</li>
-                                            <li>Created Apigee flows to enhance API management.</li>
-                                            <li>Executed unit and integration testing to ensure system integrity.</li>
-                                            <li>Debugged and resolved critical server-side issues.</li>
-                                            <li>Managed Git repositories for efficient code versioning.</li>
-                                        </ul>
-                                        <b>SAP Hybris Back-End Developer</b>
-                                        <ul>
-                                            <li>Enhanced Product Detail Pages (PDP) and Product Listing Pages (PLP).</li>
-                                            <li>Resolved SonarQube issues to improve code quality.</li>
-                                            <li>Conducted unit and integration tests for robust functionality.</li>
-                                            <li>Troubleshot server-side defects to maintain performance.</li>
-                                            <li>Streamlined Git workflows for team collaboration.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Achievements:</h4>
-                                        <ul>
-                                            <li>Completed a 3-week SAP Hybris Bootcamp, gaining in-depth platform expertise.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Spring</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Hybris</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">CSS</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JavaScript</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Bootstrap</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Mockito</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Junior Java Developer</h3>
-                                            <div class="resume-company-name ml-auto">Avantevo, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp4">10/2015 - 07/2016</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Focused on bug fixing and content updates for existing applications, enhancing functionality and user experience.</p>
-                                        <b>Junior Java Back-End/Front-End Developer</b>
-                                        <ul>
-                                            <li>Resolved defects to align functionalities with acceptance criteria.</li>
-                                            <li>Designed and implemented new web pages for existing systems.</li>
-                                            <li>Updated web content to meet evolving requirements.</li>
-                                            <li>Managed Git repositories to support development processes.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Java EE</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">CSS</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JavaScript</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Bootstrap</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Junior Front-End Developer</h3>
-                                            <div class="resume-company-name ml-auto">Intelligent Technologies, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp3">07/2015 - 10/2015</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Developed interactive web pages and enhanced existing functionalities to meet client specifications.</p>
-                                        <b>Front-End Developer</b>
-                                        <ul>
-                                            <li>Created interactive educational wizards using HTML, CSS, JavaScript, jQuery, and Bootstrap.</li>
-                                            <li>Built presentation websites with Joomla for rapid deployment.</li>
-                                            <li>Updated websites to align with client requirements.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">HTML</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">CSS</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JavaScript</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">jQuery</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Bootstrap</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Joomla</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Quality Controller</h3>
-                                            <div class="resume-company-name ml-auto">Ubisoft, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp2">06/2015 - 07/2015</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Conducted rigorous testing of video games, documenting issues in JIRA to ensure high-quality releases.</p>
-                                        <b>Quality Controller</b>
-                                        <ul>
-                                            <li>Executed diverse testing scenarios to identify defects.</li>
-                                            <li>Logged detailed issues in JIRA for efficient resolution.</li>
-                                            <li>Designed JIRA dashboards to enhance issue tracking.</li>
-                                            <li>Compiled daily reports summarizing testing outcomes.</li>
-                                            <li>Edited videos and photos to clarify reported issues.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JIRA</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Video Editing Tools</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Photo Editing Tools</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-
-                                <article class="resume-timeline-item position-relative pb-5">
-                                    <div class="resume-timeline-item-header mb-2">
-                                        <div class="d-flex flex-column flex-md-row">
-                                            <h3 class="resume-position-title font-weight-bold mb-1">Quality Controller</h3>
-                                            <div class="resume-company-name ml-auto">Ubisoft, Romania</div>
-                                        </div><!--//row-->
-                                        <div class="resume-position-time" id="workExp1">06/2014 - 09/2014</div>
-                                    </div><!--//resume-timeline-item-header-->
-                                    <div class="resume-timeline-item-desc">
-                                        <p>Performed thorough video game testing and reported issues via JIRA to support product quality.</p>
-                                        <b>Quality Controller</b>
-                                        <ul>
-                                            <li>Tested games across multiple scenarios to uncover defects.</li>
-                                            <li>Documented issues in JIRA with precision and clarity.</li>
-                                            <li>Developed JIRA dashboards for improved tracking efficiency.</li>
-                                            <li>Generated daily reports to communicate testing progress.</li>
-                                            <li>Enhanced issue reports with edited videos and photos.</li>
-                                        </ul>
-                                        <h4 class="resume-timeline-item-desc-heading font-weight-bold">Technologies Used:</h4>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">JIRA</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Video Editing Tools</span></li>
-                                            <li class="list-inline-item"><span class="badge badge-primary badge-pill">Photo Editing Tools</span></li>
-                                        </ul>
-                                    </div><!--//resume-timeline-item-desc-->
-                                </article><!--//resume-timeline-item-->
-                            </div><!--//resume-timeline-->
+            <!-- Projects -->
+            <section>
+                <h2 class="section-title"><i class="fas fa-lightbulb"></i> Personal Projects</h2>
+                <div class="proj-grid">
+                    <div class="proj">
+                        <div class="proj-head">
+                            <span class="proj-ico"><i class="fas fa-map-location-dot"></i></span>
+                            <div>
+                                <div class="proj-name">Custom POI Application</div>
+                                <div class="proj-time">May 2016</div>
+                            </div>
                         </div>
-                    </section><!--//experience-section-->
+                        <p class="proj-desc">A web application to create custom Points of Interest (e.g. small shops, pharmacies) absent from Google Maps, built with Java EE and the Google Maps API.</p>
+                    </div>
+                    <div class="proj">
+                        <div class="proj-head">
+                            <span class="proj-ico"><i class="fas fa-cart-shopping"></i></span>
+                            <div>
+                                <div class="proj-name">Semantic E-Commerce Web App</div>
+                                <div class="proj-time">Apr — Jul 2017</div>
+                            </div>
+                        </div>
+                        <p class="proj-desc">A semantic e-commerce platform with product catalog, cart, and ordering system, featuring a compatibility section powered by RDF file queries.</p>
+                    </div>
                 </div>
-                <div class="col-lg-4">
-                    <section class="resume-section skills-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Skills & Tools</h2>
-                        <div class="resume-section-content">
-                            <div class="resume-skill-item">
-                                <h4 class="resume-skills-cat font-weight-bold">Front-End</h4>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item"><span class="badge badge-light">HTML5</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">CSS3</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">JavaScript</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">jQuery</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Bootstrap</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">JSP</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Angular</span></li>
-                                </ul>
-                            </div><!--//resume-skill-item-->
-                            <div class="resume-skill-item">
-                                <h4 class="resume-skills-cat font-weight-bold">Back-End</h4>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item"><span class="badge badge-light">Java</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Java EE</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Kotlin</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Spring Boot</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Spring Core</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Spring MVC</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">SAP Hybris</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Fusion</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Liquibase</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">GraphQL</span></li>
-                                </ul>
-                            </div><!--//resume-skill-item-->
-                            <div class="resume-skill-item">
-                                <h4 class="resume-skills-cat font-weight-bold">Others</h4>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item"><span class="badge badge-light">Elasticsearch</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Joomla</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Unix</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Bash</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Git</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">GitHub Actions</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Unit Testing</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Apigee</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Microservices</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Docker</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">SQL</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">PostgreSQL</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">Neo4j</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">MongoDB</span></li>
-                                    <li class="list-inline-item"><span class="badge badge-light">TeamCity</span></li>
-                                </ul>
-                            </div><!--//resume-skill-item-->
-                        </div><!--resume-section-content-->
-                    </section><!--//skills-section-->
-                    <section class="resume-section education-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Education</h2>
-                        <div class="resume-section-content">
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <div class="resume-degree font-weight-bold">MSc in Business Administration and Engineering</div>
-                                    <div class="resume-degree-org">Faculty of Engineering in Foreign Languages, University Politehnica of Bucharest</div>
-                                    <div class="resume-degree-time">2018 - 2020</div>
-                                </li>
-                                <li>
-                                    <div class="resume-degree font-weight-bold">BSc in Computer Science and Information Technology</div>
-                                    <div class="resume-degree-org">Faculty of Engineering in Foreign Languages, University Politehnica of Bucharest</div>
-                                    <div class="resume-degree-time">2013 - 2017</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section><!--//education-section-->
-                    <section class="resume-section reference-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Personal Projects</h2>
-                        <div class="resume-section-content">
-                            <div class="resume-award-name">Custom POI Application <br> (05/2016)</div>
-                            <div class="resume-award-desc">Developed a web application to create custom Points of Interest (e.g., small shops, pharmacies) absent from Google Maps, utilizing Java EE and the Google Maps API.</div>
-                            <br>
-                            <div class="resume-award-name">Semantic E-Commerce Web App <br> (04/2017 – 07/2017)</div>
-                            <div class="resume-award-desc">Engineered a semantic e-commerce platform with a product catalog, cart, and ordering system, featuring a compatibility section powered by RDF file queries.</div>
-                        </div>
-                    </section><!--//personal-projects-section-->
-                    <section class="resume-section reference-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Awards</h2>
-                        <div class="resume-section-content">
-                            <ul class="list-unstyled resume-awards-list">
-                                <li class="mb-2 pl-4 position-relative">
-                                    <i class="resume-award-icon fas fa-award position-absolute" data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">1st Edition of IT Hackathon - Smart Technologies by Reply <br> (11/2016)</div>
-                                    <div class="resume-award-desc">Collaborated on a VR application in Unity to assess parking skills, utilizing Logitech Momo Racing Wheel and Oculus VR.</div>
-                                </li>
-                                <br>
-                                <li class="mb-0 pl-4 position-relative">
-                                    <i class="resume-award-icon fas fa-award position-absolute" data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">CCNA 1 - Telecom Academy, Bucharest, Romania <br> (02/2016 – 06/2016)</div>
-                                    <div class="resume-award-desc">Certified in Routing and Switching fundamentals.</div>
-                                </li>
-                                <br>
-                                <li class="mb-0 pl-4 position-relative">
-                                    <i class="resume-award-icon fas fa-award position-absolute" data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">ECDL - Romania, Bucharest <br> (11/2011 – 04/2013)</div>
-                                    <div class="resume-award-desc">Earned European Computer Driving Licence certification.</div>
-                                </li>
-                                <br>
-                                <li class="mb-0 pl-4 position-relative">
-                                    <i class="resume-award-icon fas fa-award position-absolute" data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">Databases, Oracle <br> (05/2012)</div>
-                                    <div class="resume-award-desc">Mastered database design and SQL programming with Oracle.</div>
-                                </li>
-                                <br>
-                                <li class="mb-0 pl-4 position-relative">
-                                    <i class="resume-award-icon fas fa-award position-absolute" data-fa-transform="shrink-2"></i>
-                                    <div class="resume-award-name">Cambridge Assessment CAE C1 <br> (05/2010)</div>
-                                    <div class="resume-award-desc">Achieved C1-level proficiency in English from Cambridge English Language Assessment.</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </section><!--//awards-section-->
-                    <section class="resume-section language-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Languages</h2>
-                        <div class="resume-section-content">
-                            <ul class="list-unstyled resume-lang-list">
-                                <li class="mb-2"><span class="resume-lang-name font-weight-bold">Romanian</span> <small class="text-muted font-weight-normal">(Native)</small></li>
-                                <li class="mb-2 align-middle"><span class="resume-lang-name font-weight-bold">English</span> <small class="text-muted font-weight-normal">(Professional)</small></li>
-                                <li><span class="resume-lang-name font-weight-bold">German</span> <small class="text-muted font-weight-normal">(Beginner)</small></li>
-                            </ul>
-                        </div>
-                    </section><!--//language-section-->
-                    <section class="resume-section interests-section mb-5">
-                        <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Interests</h2>
-                        <div class="resume-section-content">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><span class="badge badge-light">Programming</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">Tech Gadgets</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">Board Games</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">Gym</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">Cars</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">Pool</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">TV Shows</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">Movies</span></li>
-                                <li class="list-inline-item"><span class="badge badge-light">Gaming</span></li>
-                            </ul>
-                        </div>
-                    </section><!--//interests-section-->
+            </section>
+
+            <!-- Interests -->
+            <section style="margin-bottom:0;">
+                <h2 class="section-title"><i class="fas fa-heart"></i> Interests</h2>
+                <div class="interests">
+                    <span class="interest"><i class="fas fa-code"></i> Programming</span>
+                    <span class="interest"><i class="fas fa-microchip"></i> Tech Gadgets</span>
+                    <span class="interest"><i class="fas fa-chess"></i> Board Games</span>
+                    <span class="interest"><i class="fas fa-dumbbell"></i> Gym</span>
+                    <span class="interest"><i class="fas fa-car"></i> Cars</span>
+                    <span class="interest"><i class="fas fa-circle"></i> Pool</span>
+                    <span class="interest"><i class="fas fa-tv"></i> TV &amp; Movies</span>
+                    <span class="interest"><i class="fas fa-gamepad"></i> Gaming</span>
                 </div>
-            </div><!--//row-->
-        </div><!--//resume-body-->
-    </div>
-</article>
+            </section>
+        </main>
+    </article>
 
-<footer class="footer text-center pt-2 pb-5">
-    <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-</footer>
+    <footer class="footer">
+        <p>Stefan-Octavian Rosu — Senior Software Engineer · Bucharest, Romania</p>
+    </footer>
+</div>
 
-</body>
-<script type="text/javascript" src="assets/js/script.js"></script>
-<script type="text/javascript" language="JavaScript">
-    computeMoment('workExp10', '2023-11', moment())
-    computeMoment('workExp9', '2021-11', '2023-11')
-    computeMoment('workExp8', '2021-04', '2021-11')
-    computeMoment('workExp7', '2020-02', '2021-04')
-    computeMoment('workExp6', '2018-10', '2020-02')
-    computeMoment('workExp5', '2017-09', '2018-10')
-    computeMoment('workExp4', '2015-10', '2016-07')
-    computeMoment('workExp3', '2015-07', '2015-10')
-    computeMoment('workExp2', '2015-06', '2015-07')
-    computeMoment('workExp1', '2014-06', '2014-09')
+<script>
+    (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById('themeToggle');
+        var icon = btn.querySelector('i');
 
+        function apply(theme) {
+            root.setAttribute('data-theme', theme);
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            try { localStorage.setItem('cv-theme', theme); } catch (e) {}
+        }
+
+        var saved;
+        try { saved = localStorage.getItem('cv-theme'); } catch (e) {}
+        if (!saved) {
+            saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        apply(saved);
+
+        btn.addEventListener('click', function () {
+            apply(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        });
+    })();
 </script>
+</body>
 </html>
-
