@@ -515,6 +515,30 @@
         .proj-name { font-size: .92rem; font-weight: 700; color: var(--text); }
         .proj-time { font-size: .7rem; color: var(--text-faint); font-family: 'JetBrains Mono', monospace; }
         .proj-desc { font-size: .84rem; color: var(--text-soft); margin: 0; }
+
+        /* Why I'd be an asset */
+        .strengths { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .strength {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 13px 14px;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .strength:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent); }
+        .strength-head { display: flex; align-items: center; gap: 9px; margin-bottom: 5px; }
+        .strength-ico {
+            width: 26px; height: 26px;
+            border-radius: 7px;
+            background: var(--accent-grad);
+            color: #fff;
+            display: grid; place-items: center;
+            font-size: .72rem;
+            flex-shrink: 0;
+        }
+        .strength-title { font-size: .85rem; font-weight: 700; color: var(--text); }
+        .strength p { font-size: .79rem; line-height: 1.45; color: var(--text-soft); margin: 0; }
+        @media (max-width: 720px) { .strengths { grid-template-columns: 1fr; } }
         .proj-tech { margin-top: 10px; font-size: .72rem; color: var(--text-faint); font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 7px; }
         .proj-tech i { color: var(--accent); }
         .proj-ai { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; font-size: .68rem; font-weight: 600; letter-spacing: .02em; color: #fff; background: var(--accent-grad); border-radius: 30px; padding: 4px 11px; }
@@ -845,6 +869,56 @@
                 <p>Right now, I'm increasingly building with <b>AI</b> across both my <b>personal and professional projects</b>. On side projects I run a full <b>agentic</b> setup — a <b>Claude (Claude Code)</b> pipeline of role-based agents — analyst, architect, developer, reviewer, team-lead — each operating as its own <b>GitHub App</b> across branches, pull requests, and releases. At work I use AI tools as pair-programmers to accelerate delivery, so in both settings I scope and steer the work while AI handles much of the execution.</p>
                 <p>I'm genuinely <b>open to AI</b> and actively adopting it to deliver <b>better and faster</b>, while keeping a human review on everything that ships.</p>
                 <p>Open to senior <b>remote</b> back-end and full-stack roles (contract or full-time) where I can own complex systems from architecture to production and grow within a high-performing, international team.</p>
+            </section>
+
+            <!-- Why I'd be an asset -->
+            <section>
+                <h2 class="section-title"><i class="fas fa-star"></i> Why I'd Be an Asset</h2>
+                <p class="job-intro">Beyond the stack, here's how I work and what I bring to a team.</p>
+                <div class="strengths">
+                    <div class="strength">
+                        <div class="strength-head">
+                            <span class="strength-ico"><i class="fas fa-bullseye"></i></span>
+                            <div class="strength-title">Objective-Driven</div>
+                        </div>
+                        <p>I anchor work to the outcome it serves, cut what doesn't move it, and measure by impact, not activity.</p>
+                    </div>
+                    <div class="strength">
+                        <div class="strength-head">
+                            <span class="strength-ico"><i class="fas fa-flag-checkered"></i></span>
+                            <div class="strength-title">Goal-Oriented Ownership</div>
+                        </div>
+                        <p>I own features from architecture to production: schema, service, tests, deploy. Nothing gets thrown over a wall.</p>
+                    </div>
+                    <div class="strength">
+                        <div class="strength-head">
+                            <span class="strength-ico"><i class="fas fa-shield-halved"></i></span>
+                            <div class="strength-title">Trusted in High-Stakes Systems</div>
+                        </div>
+                        <p>A decade in banking, fintech, and payments taught me to treat correctness, security, and auditability as first-class, where mistakes are expensive.</p>
+                    </div>
+                    <div class="strength">
+                        <div class="strength-head">
+                            <span class="strength-ico"><i class="fas fa-bolt"></i></span>
+                            <div class="strength-title">AI-Accelerated Delivery</div>
+                        </div>
+                        <p>I pair AI and agentic workflows with senior judgment to ship more, faster, with human review on everything. Leverage, not shortcuts.</p>
+                    </div>
+                    <div class="strength">
+                        <div class="strength-head">
+                            <span class="strength-ico"><i class="fas fa-people-group"></i></span>
+                            <div class="strength-title">Clear Communicator &amp; Team Multiplier</div>
+                        </div>
+                        <p>Crisp API contracts, documented decisions, and teammates unblocked, collaborating clearly across distributed, international teams.</p>
+                    </div>
+                    <div class="strength">
+                        <div class="strength-head">
+                            <span class="strength-ico"><i class="fas fa-arrow-trend-up"></i></span>
+                            <div class="strength-title">Relentless Learner</div>
+                        </div>
+                        <p>Always adopting the next tool or pattern that makes the team better (currently agentic AI), then folding it back into delivery.</p>
+                    </div>
+                </div>
             </section>
 
             <!-- Experience -->
