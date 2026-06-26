@@ -603,18 +603,37 @@
            Print
            ============================================================ */
         @media print {
+            @page { margin: 10mm; }
             :root {
                 --bg: #fff;
                 --shadow: none;
             }
-            body { background: #fff; }
+            * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            html, body { background: #fff; font-size: 10.5px; }
             .controls, .footer { display: none !important; }
             .page { margin: 0; max-width: none; padding: 0; }
-            .resume { grid-template-columns: 300px 1fr; border-radius: 0; box-shadow: none; }
-            .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .resume { grid-template-columns: 220px 1fr; border-radius: 0; box-shadow: none; }
+            /* sidebar only as tall as its content — no black stripe down later pages */
+            .sidebar { padding: 24px 20px; align-self: start; }
+            .main { padding: 24px 22px; }
+
+            /* compact spacing so it doesn't sprawl across pages */
+            section { margin-bottom: 14px; }
+            .main-header { margin-bottom: 16px; }
+            .timeline { padding-left: 18px; }
+            .job { margin-bottom: 14px; }
+            .bullets li { margin-bottom: 3px; }
+            .avatar-wrap { width: 110px; height: 110px; margin-bottom: 16px; }
+            .avatar { width: 110px; height: 110px; }
+
+            /* project cards flow as blocks (grid items ignore break-inside in Chrome) */
+            .proj-grid { display: block; }
+            .proj { margin-bottom: 12px; }
+
+            /* keep these blocks whole; let long sections/jobs split BETWEEN them */
+            .proj, .proj-ai-note, .proj-todo, .bullets, .skill-group, .mini-item, .lang-row, .stat, .job-head { page-break-inside: avoid; break-inside: avoid; }
+            .subrole, .lang-name, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
             .proj:hover { transform: none; box-shadow: none; }
-            .job { page-break-inside: avoid; }
-            section { page-break-inside: avoid; }
         }
     </style>
 </head>
