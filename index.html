@@ -412,13 +412,13 @@
         }
 
         .job-head {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
+            display: grid;
+            grid-template-columns: 1fr 90px;
+            align-items: center;
             gap: 4px 16px;
             margin-bottom: 4px;
         }
+        .job-head-right { display: flex; align-items: center; gap: 14px; }
         .job-title { font-size: 1.06rem; font-weight: 700; color: var(--text); margin: 0; }
         .job-time {
             font-size: .74rem;
@@ -432,15 +432,24 @@
         }
         [data-theme="dark"] .job-time { color: #a78bfa; }
         .job-when { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .job-dur { font-size: .68rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--accent-soft); white-space: nowrap; }
+        .job-dur { font-size: .68rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--accent-soft); white-space: nowrap; text-align: center; display: block; width: 100%; }
+        .job-co { font-size: .72rem; font-weight: 500; color: var(--text-soft); white-space: nowrap; text-align: center; }
         .job-company {
             font-size: .88rem;
             font-weight: 600;
             color: var(--text-soft);
             margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: 1fr 90px;
+            align-items: center;
         }
+        .job-company .company-logo { justify-self: center; }
         .job-company i { color: var(--accent); margin-right: 6px; font-size: .8rem; }
         [data-theme="dark"] .job-company i { color: #a78bfa; }
+        .company-logo { height: 44px; width: 140px; border-radius: 5px; vertical-align: middle; object-fit: contain; background: #fff; padding: 4px; }
+        .company-logo.logo-lg { height: 56px; width: 180px; }
+        [data-theme="dark"] .company-logo.logo-invert { filter: invert(1) brightness(1.8); background: transparent; }
+        [data-theme="dark"] .company-logo.ubisoft-logo { content: url('assets/images/logos/ubisoft-white.svg'); background: transparent; }
 
         .job-intro { font-size: .9rem; color: var(--text-soft); margin: 0 0 12px; }
 
@@ -953,7 +962,7 @@
                             <h3 class="job-title">Senior Software Developer</h3>
                             <div class="job-when"><span class="job-time">Nov 2023 — Present</span><span class="job-dur">2 yr 7 mo</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>Raiffeisen Tech Romania, Bucharest</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>Raiffeisen Tech, Romania</span><img class="company-logo logo-lg" src="assets/images/logos/raiffeisen-tech.png" alt="Raiffeisen Tech"></div>
                         <p class="job-intro">Full-stack developer across business-critical internal applications — payment orchestration, an Engineering Platform, and Regulatory Reporting — improving cross-border payment flows, engineering auditability, and compliance reporting bank-wide.</p>
 
                         <div class="subrole">Back-End Developer — Payment Orchestration</div>
@@ -995,7 +1004,7 @@
                             <h3 class="job-title">Senior Software Developer — Contractor</h3>
                             <div class="job-when"><span class="job-time">Nov 2021 — Nov 2023</span><span class="job-dur">2 yr</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>Rinf Tech, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>Rinf Tech, Romania</span><img class="company-logo" src="assets/images/logos/rinf-tech.png" alt="Rinf Tech"></div>
                         <p class="job-intro">Senior back-end engineer delivering <b>Java 17</b> microservices for two enterprise clients — Edenred and Deutsche Bank — focused on scalability, data integrity, and clean API contracts.</p>
 
                         <div class="subrole">Senior Java Back-End Developer — Edenred Digital</div>
@@ -1027,7 +1036,7 @@
                             <h3 class="job-title">Senior Software Developer</h3>
                             <div class="job-when"><span class="job-time">Apr 2021 — Nov 2021</span><span class="job-dur">7 mo</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>N-Able, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>N-Able, Romania</span><img class="company-logo" src="assets/images/logos/n-able.png" alt="N-Able"></div>
                         <p class="job-intro">Senior back-end engineer building <b>Java 8</b> / <b>Spring</b> services for managed service providers (MSPs), with delivery containerized via <b>Docker</b> and <b>Kubernetes</b>.</p>
                         <ul class="bullets">
                             <li>Engineered and maintained high-performance REST endpoints in <b>Java</b> and <b>Spring</b>, serving MSP-facing features at scale.</li>
@@ -1048,7 +1057,7 @@
                             <h3 class="job-title">Software Developer</h3>
                             <div class="job-when"><span class="job-time">Feb 2020 — Apr 2021</span><span class="job-dur">1 yr 2 mo</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>Garrett Advancing Motion, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>Garrett Advancing Motion, Romania</span><img class="company-logo" src="assets/images/logos/garrett.png" alt="Garrett Advancing Motion"></div>
                         <p class="job-intro">Back-end developer on an automotive software project, delivering reliable <b>Java 8</b> / <b>Spring</b> services for a global manufacturer of turbocharging and electrification technologies.</p>
                         <ul class="bullets">
                             <li>Developed and supported robust REST API endpoints in <b>Java</b> and <b>Spring</b>, delivering features against automotive-domain requirements.</li>
@@ -1068,7 +1077,7 @@
                             <h3 class="job-title">Associate Integration Development Consultant</h3>
                             <div class="job-when"><span class="job-time">Oct 2018 — Feb 2020</span><span class="job-dur">1 yr 4 mo</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>SAP, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>SAP, Romania</span><img class="company-logo" src="assets/images/logos/sap-romania.png" alt="SAP Romania"></div>
                         <p class="job-intro">Full-stack developer on an enterprise e-commerce platform, delivering end-to-end features with <b>Java 8</b> and <b>Spring</b> while deepening expertise across the SAP ecosystem.</p>
                         <ul class="bullets">
                             <li>Built and integrated features from front-end to back-end in <b>Java</b> / <b>Spring</b>, owning slices of functionality through to release.</li>
@@ -1088,7 +1097,7 @@
                             <h3 class="job-title">Software Developer</h3>
                             <div class="job-when"><span class="job-time">Sep 2017 — Oct 2018</span><span class="job-dur">1 yr 1 mo</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>Deloitte Digital, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>Deloitte Digital, Romania</span><img class="company-logo" src="assets/images/logos/deloitte-digital.jpeg" alt="Deloitte Digital"></div>
                         <p class="job-intro">Back-end developer across two projects: a financial application built on <b>Java 8</b>, <b>Spring</b>, and microservices, and a <b>SAP Hybris</b> e-commerce solution.</p>
 
                         <div class="subrole">Java Back-End Developer</div>
@@ -1118,7 +1127,7 @@
                             <h3 class="job-title">Junior Java Developer</h3>
                             <div class="job-when"><span class="job-time">Oct 2015 — Jul 2016</span><span class="job-dur">9 mo</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>Avantevo, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>Avantevo, Romania</span><img class="company-logo logo-invert" src="assets/images/logos/avantevo.png" alt="Avantevo"></div>
                         <p class="job-intro">Focused on bug fixing and content updates for existing applications, enhancing functionality and user experience.</p>
                         <ul class="bullets">
                             <li>Resolved defects in <b>Java EE</b> applications to align functionality with acceptance criteria.</li>
@@ -1137,7 +1146,7 @@
                             <h3 class="job-title">Junior Front-End Developer</h3>
                             <div class="job-when"><span class="job-time">Jul 2015 — Oct 2015</span><span class="job-dur">3 mo</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>Intelligent Technologies, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>Intelligent Technologies, Romania</span><img class="company-logo" src="assets/images/logos/intelligent-technologies.png" alt="Intelligent Technologies"></div>
                         <p class="job-intro">Developed interactive web pages and enhanced existing functionalities to meet client specifications.</p>
                         <ul class="bullets">
                             <li>Created interactive educational wizards using HTML, CSS, JavaScript, jQuery, and Bootstrap.</li>
@@ -1154,9 +1163,9 @@
                     <article class="job">
                         <div class="job-head">
                             <h3 class="job-title">Quality Controller</h3>
-                            <span class="job-time">2014 &amp; 2015 (Seasonal)</span>
+                            <div class="job-when"><span class="job-time">2014 &amp; 2015 (Seasonal)</span></div>
                         </div>
-                        <div class="job-company"><i class="fas fa-building"></i>Ubisoft, Romania</div>
+                        <div class="job-company"><span><i class="fas fa-building"></i>Ubisoft, Romania</span><img class="company-logo ubisoft-logo" src="assets/images/logos/ubisoft.svg" alt="Ubisoft"></div>
                         <p class="job-intro">Conducted rigorous testing of video games across two seasonal engagements, documenting issues in JIRA to ensure high-quality releases.</p>
                         <ul class="bullets">
                             <li>Executed diverse testing scenarios to identify defects across multiple titles.</li>
