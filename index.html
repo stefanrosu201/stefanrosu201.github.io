@@ -440,10 +440,11 @@
             align-items: center;
             justify-content: flex-start;
         }
-        .company-logo { height: 44px; width: 140px; border-radius: 5px; vertical-align: middle; object-fit: contain; object-position: left center; background: #fff; padding: 4px 4px 4px 0; }
-        .company-logo.logo-sm { height: 28px; width: 120px; }
-        .company-logo.logo-md { height: 50px; width: 160px; }
-        .company-logo.logo-lg { height: 48px; width: 160px; padding: 4px 4px 4px 0; }
+        .company-logo { height: 44px; width: auto; max-width: 220px; border-radius: 5px; vertical-align: middle; background: #fff; padding: 4px; }
+        .company-logo.logo-xs { height: 28px; }
+        .company-logo.logo-sm { height: 36px; }
+        .company-logo.logo-md { height: 50px; }
+        .company-logo.logo-lg { height: 48px; }
         [data-theme="dark"] .company-logo.logo-invert { filter: invert(1) brightness(1.8); background: transparent; }
         [data-theme="dark"] .company-logo.ubisoft-logo { content: url('assets/images/logos/ubisoft-white.svg'); background: transparent; }
 
@@ -1032,7 +1033,7 @@
                             <h3 class="job-title">Senior Software Developer</h3>
                             <div class="job-when"><span class="job-time">Apr 2021 — Nov 2021</span><span class="job-dur">7 mo</span></div>
                         </div>
-                        <div class="job-company"><img class="company-logo" src="assets/images/logos/n-able.png" alt="N-Able"></div>
+                        <div class="job-company"><img class="company-logo logo-sm" src="assets/images/logos/n-able.png" alt="N-Able"></div>
                         <p class="job-intro">Senior back-end engineer building <b>Java 8</b> / <b>Spring</b> services for managed service providers (MSPs), with delivery containerized via <b>Docker</b> and <b>Kubernetes</b>.</p>
                         <ul class="bullets">
                             <li>Engineered and maintained high-performance REST endpoints in <b>Java</b> and <b>Spring</b>, serving MSP-facing features at scale.</li>
@@ -1093,7 +1094,7 @@
                             <h3 class="job-title">Software Developer</h3>
                             <div class="job-when"><span class="job-time">Sep 2017 — Oct 2018</span><span class="job-dur">1 yr 1 mo</span></div>
                         </div>
-                        <div class="job-company"><img class="company-logo logo-lg" src="assets/images/logos/deloitte-digital.jpeg" alt="Deloitte Digital"></div>
+                        <div class="job-company"><img class="company-logo logo-lg" src="assets/images/logos/deloitte-digital.png" alt="Deloitte Digital"></div>
                         <p class="job-intro">Back-end developer across two projects: a financial application built on <b>Java 8</b>, <b>Spring</b>, and microservices, and a <b>SAP Hybris</b> e-commerce solution.</p>
 
                         <div class="subrole">Java Back-End Developer</div>
@@ -1123,7 +1124,7 @@
                             <h3 class="job-title">Junior Java Developer</h3>
                             <div class="job-when"><span class="job-time">Oct 2015 — Jul 2016</span><span class="job-dur">9 mo</span></div>
                         </div>
-                        <div class="job-company"><img class="company-logo logo-sm logo-invert" src="assets/images/logos/avantevo.png" alt="Avantevo"></div>
+                        <div class="job-company"><img class="company-logo logo-xs logo-invert" src="assets/images/logos/avantevo.png" alt="Avantevo"></div>
                         <p class="job-intro">Focused on bug fixing and content updates for existing applications, enhancing functionality and user experience.</p>
                         <ul class="bullets">
                             <li>Resolved defects in <b>Java EE</b> applications to align functionality with acceptance criteria.</li>
